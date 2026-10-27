@@ -1,0 +1,593 @@
+<title>Bauleiter-Checkliste</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow:wght@400;500;600&family=Barlow+Condensed:wght@600;700&display=swap">
+<style>
+/* Layout: Baustellen-Tafel – feste Kopfleiste mit Warnstreifen und Reitern, darunter eine einspaltige Abhakliste mit großen Tippflächen */
+:root {
+  --papier: #f3f4f3;
+  --flaeche: #ffffff;
+  --tinte: #23282c;
+  --tinte-2: #59626a;
+  --linie: #d6dadc;
+  --signal: #f2a900;          /* Signalgelb, angelehnt an RAL 1003 */
+  --auf-signal: #1b1e21;
+  --akzent-text: #7d5200;
+  --erledigt: #1f7a4d;        /* Signalgrün */
+  --erledigt-hell: #e3f1e9;
+  --warn: #a3201e;            /* Signalrot */
+  --warn-hell: #f9e5e4;
+  --fokus: #0b62c4;
+  --schatten: 0 1px 2px rgb(20 24 28 / 0.08);
+  --anzeige: "Barlow Condensed", "Arial Narrow", "Roboto Condensed", sans-serif;
+  --text: "Barlow", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r: 6px;
+}
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --papier: #16191b; --flaeche: #202427; --tinte: #eceeec; --tinte-2: #a2aab0; --linie: #343a3f;
+    --signal: #f5b320; --auf-signal: #16191b; --akzent-text: #f5b320;
+    --erledigt: #4cb67f; --erledigt-hell: #1d3328; --warn: #ec6a60; --warn-hell: #3a2120; --fokus: #7ab5ff;
+    --schatten: none; color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --papier: #16191b; --flaeche: #202427; --tinte: #eceeec; --tinte-2: #a2aab0; --linie: #343a3f;
+  --signal: #f5b320; --auf-signal: #16191b; --akzent-text: #f5b320;
+  --erledigt: #4cb67f; --erledigt-hell: #1d3328; --warn: #ec6a60; --warn-hell: #3a2120; --fokus: #7ab5ff;
+  --schatten: none; color-scheme: dark;
+}
+
+* { box-sizing: border-box; }
+body { background: var(--papier); color: var(--tinte); font-family: var(--text); font-size: 16px; line-height: 1.45; }
+body::before { content: ""; position: fixed; inset: 0 0 auto; height: env(safe-area-inset-top, 0px); z-index: 10; background: var(--flaeche); }
+button, select, input { font: inherit; color: inherit; }
+:focus-visible { outline: 3px solid var(--fokus); outline-offset: 2px; }
+.rand { padding-left: max(16px, env(safe-area-inset-left, 0px)); padding-right: max(16px, env(safe-area-inset-right, 0px)); max-width: 820px; margin: 0 auto; }
+
+/* Kopf */
+.kopf { position: sticky; top: env(safe-area-inset-top, 0px); z-index: 5; background: var(--flaeche); border-bottom: 1px solid var(--linie); box-shadow: var(--schatten); }
+.warnstreifen { height: 6px; background: repeating-linear-gradient(-45deg, var(--signal) 0 12px, var(--auf-signal) 12px 24px); }
+.kopf-zeile { display: flex; flex-wrap: wrap; align-items: center; gap: 8px 16px; padding-block: 12px 8px; }
+h1 { font-family: var(--anzeige); font-weight: 700; font-size: 1.6rem; letter-spacing: 0.01em; margin: 0; line-height: 1.1; text-wrap: balance; flex: 1 1 auto; }
+.bs-wahl { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; min-width: 0; }
+.bs-wahl label { font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--tinte-2); font-weight: 600; }
+select { background: var(--papier); border: 1px solid var(--linie); border-radius: var(--r); padding: 6px 8px; max-width: 100%; min-width: 0; }
+.knopf { background: transparent; border: 1px solid var(--linie); border-radius: var(--r); padding: 6px 12px; cursor: pointer; font-weight: 500; }
+.knopf:hover { border-color: var(--tinte-2); }
+.knopf.voll { background: var(--signal); color: var(--auf-signal); border-color: var(--signal); font-weight: 600; }
+.knopf.warn { color: var(--warn); border-color: var(--warn); }
+.knopf:disabled { opacity: 0.5; cursor: default; }
+.bs-form { display: flex; gap: 8px; flex-wrap: wrap; padding-block: 0 10px; }
+.bs-form input { flex: 1 1 220px; min-width: 0; border: 1px solid var(--linie); border-radius: var(--r); padding: 6px 10px; background: var(--papier); }
+
+.reiter-scroll { overflow-x: auto; scrollbar-width: none; }
+.reiter-scroll::-webkit-scrollbar { display: none; }
+.reiter { display: flex; gap: 4px; padding-block: 0 0; width: max-content; min-width: 100%; }
+.reiter button { border: 0; background: transparent; padding: 8px 10px 10px; cursor: pointer; border-bottom: 3px solid transparent; display: flex; flex-direction: column; align-items: flex-start; gap: 0; color: var(--tinte-2); }
+.reiter button .name { font-family: var(--anzeige); font-weight: 600; font-size: 1.05rem; letter-spacing: 0.02em; color: var(--tinte); }
+.reiter button .zahl { font-size: 0.75rem; font-variant-numeric: tabular-nums; }
+.reiter button[aria-selected="true"] { border-bottom-color: var(--signal); }
+.reiter button.fertig .zahl { color: var(--erledigt); font-weight: 600; }
+.reiter button.unfall .name { color: var(--warn); }
+
+/* Abschnitt */
+main { padding-block: 20px 32px; }
+.abschnitt-kopf { display: grid; gap: 10px; margin-bottom: 14px; }
+.titelzeile { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: 4px 16px; }
+h2 { font-family: var(--anzeige); font-weight: 700; font-size: 1.9rem; margin: 0; line-height: 1.1; text-wrap: balance; }
+.rhythmus { font-size: 0.8rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--akzent-text); font-weight: 600; }
+.periode { display: flex; align-items: center; gap: 8px; flex-wrap: wrap; }
+.periode .label { font-weight: 600; font-variant-numeric: tabular-nums; min-width: 0; }
+.pfeil { width: 36px; height: 36px; padding: 0; display: inline-grid; place-items: center; }
+.fortschritt { display: flex; align-items: center; gap: 12px; }
+.balken { flex: 1; height: 10px; background: var(--linie); border-radius: 5px; overflow: hidden; }
+.balken > div { height: 100%; width: 0; background: var(--signal); transition: width .25s ease; }
+.balken.voll > div { background: var(--erledigt); }
+.fortschritt .zahl { font-variant-numeric: tabular-nums; font-weight: 600; white-space: nowrap; }
+
+.notruf { border: 2px solid var(--warn); background: var(--warn-hell); border-radius: var(--r); padding: 12px 14px; display: grid; gap: 4px; margin-bottom: 14px; }
+.notruf strong { font-family: var(--anzeige); font-size: 1.6rem; color: var(--warn); letter-spacing: 0.02em; line-height: 1.1; }
+.notruf p { margin: 0; }
+
+.liste { list-style: none; margin: 0; padding: 0; display: grid; gap: 8px; }
+.punkt { background: var(--flaeche); border: 1px solid var(--linie); border-radius: var(--r); box-shadow: var(--schatten); }
+.punkt.an { background: var(--erledigt-hell); border-color: color-mix(in srgb, var(--erledigt) 35%, var(--linie)); }
+.zeile { display: flex; align-items: flex-start; gap: 4px; }
+.haken { flex: 1; display: flex; align-items: flex-start; gap: 12px; padding: 12px 8px 12px 12px; cursor: pointer; min-width: 0; }
+.haken input { position: absolute; opacity: 0; width: 1px; height: 1px; }
+.kasten { flex: none; width: 28px; height: 28px; border: 2px solid var(--tinte-2); border-radius: 5px; display: grid; place-items: center; background: var(--flaeche); margin-top: -2px; }
+.kasten svg { width: 18px; height: 18px; opacity: 0; }
+.haken input:checked + .kasten { background: var(--erledigt); border-color: var(--erledigt); }
+.haken input:checked + .kasten svg { opacity: 1; }
+.haken input:focus-visible + .kasten { outline: 3px solid var(--fokus); outline-offset: 2px; }
+.haken input:disabled + .kasten { opacity: 0.55; }
+.text { min-width: 0; overflow-wrap: anywhere; }
+.punkt.an .text { color: var(--tinte-2); }
+.wann { display: block; font-size: 0.8rem; color: var(--erledigt); font-weight: 600; font-variant-numeric: tabular-nums; }
+.info-knopf { flex: none; margin: 10px 10px 0 0; border: 1px solid var(--linie); background: var(--papier); border-radius: 999px; padding: 2px 9px; font-size: 0.75rem; font-weight: 600; letter-spacing: 0.04em; color: var(--akzent-text); cursor: pointer; font-variant-numeric: tabular-nums; }
+.info-knopf[aria-expanded="true"] { background: var(--signal); color: var(--auf-signal); border-color: var(--signal); }
+.info { border-top: 1px dashed var(--linie); padding: 10px 12px 12px 52px; display: grid; gap: 8px; font-size: 0.92rem; }
+.info p { margin: 0; max-width: 65ch; }
+.info .id { font-weight: 600; color: var(--akzent-text); margin-right: 6px; }
+.info .quelle { color: var(--tinte-2); font-size: 0.8rem; display: block; }
+
+.unten { margin-top: 18px; display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+.bestaetigen { display: flex; flex-wrap: wrap; gap: 8px; align-items: center; }
+
+footer { border-top: 1px solid var(--linie); padding-block: 14px 24px; color: var(--tinte-2); font-size: 0.85rem; display: grid; gap: 4px; }
+footer p { margin: 0; max-width: 70ch; }
+#status { font-weight: 600; color: var(--tinte); }
+#status.lesen, #status.fehler { color: var(--warn); }
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.35rem; }
+  h2 { font-size: 1.6rem; }
+  .info { padding-left: 12px; }
+}
+@media (prefers-reduced-motion: reduce) { .balken > div { transition: none; } }
+</style>
+
+<header class="kopf">
+  <div class="warnstreifen" aria-hidden="true"></div>
+  <div class="rand">
+    <div class="kopf-zeile">
+      <h1>Bauleiter-Checkliste</h1>
+      <div class="bs-wahl">
+        <label for="bs-wahl">Baustelle</label>
+        <select id="bs-wahl"></select>
+        <button class="knopf" id="bs-neu" type="button">+ Neue Baustelle</button>
+      </div>
+    </div>
+    <form class="bs-form" id="bs-form" hidden>
+      <input id="bs-name" type="text" maxlength="80" placeholder="Name der Baustelle, z. B. Maschinenhalle Musterweg" autocomplete="off">
+      <button class="knopf voll" type="submit">Anlegen</button>
+      <button class="knopf" type="button" id="bs-abbruch">Abbrechen</button>
+    </form>
+  </div>
+  <div class="rand reiter-scroll">
+    <div class="reiter" id="reiter" role="tablist" aria-label="Abschnitte"></div>
+  </div>
+</header>
+
+<main class="rand" id="ansicht">
+  <div class="abschnitt-kopf">
+    <div class="titelzeile">
+      <h2 id="titel">Täglich</h2>
+      <span class="rhythmus" id="rhythmus"></span>
+    </div>
+    <div class="periode" id="periode" hidden>
+      <button class="knopf pfeil" id="zurueck" type="button" aria-label="Vorheriger Zeitraum">‹</button>
+      <span class="label" id="periode-label"></span>
+      <button class="knopf pfeil" id="vor" type="button" aria-label="Nächster Zeitraum">›</button>
+      <button class="knopf" id="jetzt" type="button" hidden>Zurück zu heute</button>
+    </div>
+    <div class="fortschritt">
+      <div class="balken" id="balken"><div></div></div>
+      <span class="zahl" id="zaehler">0 von 0</span>
+    </div>
+  </div>
+
+  <div class="notruf" id="notruf" hidden>
+    <strong>Notruf 112</strong>
+    <p>Wo ist es passiert? Was ist passiert? Wie viele Verletzte? Welche Verletzungen? Auf Rückfragen warten.</p>
+    <p>Unfallanzeige an die BG BAU binnen 3 Tagen, wenn jemand mehr als 3 Tage arbeitsunfähig ist.</p>
+  </div>
+
+  <ul class="liste" id="liste"></ul>
+
+  <div class="unten" id="unten" hidden>
+    <button class="knopf warn" type="button" id="leeren">Neuer Vorfall: Liste leeren</button>
+    <span class="bestaetigen" id="bestaetigen" hidden>
+      <span>Alle Haken in dieser Liste entfernen?</span>
+      <button class="knopf warn" type="button" id="leeren-ja">Ja, leeren</button>
+      <button class="knopf" type="button" id="leeren-nein">Nein</button>
+    </span>
+  </div>
+</main>
+
+<footer class="rand">
+  <p id="status">Verbinde mit dem Speicher …</p>
+  <p>Kürzel wie UNF-03 antippen zeigt Frist, Grenzwert und Quelle. Alle Fakten stehen im Ordner Bauleitung unter _gedaechtnis/WISSEN.md. Stand der Inhalte: <span id="stand"></span>, ohne Gewähr – bei Rechtsfragen den Originaltext prüfen.</p>
+</footer>
+
+<script id="daten" type="application/json">{"titel":"Bauleiter-Checkliste","stand":"10/2026","abschnitte":[{"id":"start","titel":"Vor Baubeginn","kurz":"Start","art":"einmalig","punkte":[{"id":"s01","text":"Vertrag, LV, Pläne und Vorbemerkungen durchgearbeitet (VOB/B? Vertragsstrafe? Fristen? Sicherheiten?)","ref":["VOB-14"]},{"id":"s02","text":"Baugenehmigung bzw. Freigabe liegt vor, Bauvorlagen für die Baustelle bereit","ref":["VOR-06"]},{"id":"s03","text":"Baubeginnanzeige an die Bauaufsicht geklärt (mind. 1 Woche vorher, durch Bauherrn)","ref":["VOR-06"]},{"id":"s04","text":"Bauleiter der Bauaufsicht benannt (Landesbauordnung)","ref":["VOR-05"]},{"id":"s05","text":"Vorankündigung nach BaustellV geprüft, falls nötig 2 Wochen vorher übermittelt","ref":["BSV-02"]},{"id":"s06","text":"SiGeKo bestellt (bei mehreren Arbeitgebern), SiGe-Plan erhalten und gelesen","ref":["BSV-03","BSV-04"]},{"id":"s07","text":"Baustellenbezogene Gefährdungsbeurteilung erstellt","ref":["ORG-01"]},{"id":"s08","text":"Leitungsauskünfte aller Betreiber eingeholt, Pläne für die Baustelle kopiert","ref":["ERD-01"]},{"id":"s09","text":"Kampfmittelauskunft eingeholt (wo nötig)","ref":["ERD-07"]},{"id":"s10","text":"Schadstoffe im Bestand geklärt (Asbest-Info vom Bauherrn bei Baujahr vor 1993)","ref":["GEF-03","GEF-04"]},{"id":"s11","text":"Verkehrsrechtliche Anordnung und Sondernutzungs-/Aufbruchgenehmigung beantragt","ref":["VER-01","VER-02"]},{"id":"s12","text":"Beweissicherung: Nachbarbebauung, Straßen, Bäume fotografiert bzw. Gutachten","ref":[]},{"id":"s13","text":"Baustelleneinrichtungsplan und Bauzeitenplan erstellt","ref":[]},{"id":"s14","text":"Baustrom, Bauwasser, Zufahrt und Lagerflächen geklärt","ref":["ELE-01"]},{"id":"s15","text":"Entsorgung geplant: Container nach Fraktionen, Bodenanalytik","ref":["UMW-01","UMW-03"]},{"id":"s16","text":"Nachunternehmer-Unterlagen vollständig (Freistellung §48b, Unbedenklichkeit, Mindestlohn)","ref":["PER-06","PER-07"]},{"id":"s17","text":"Notfall-Aushang ausgefüllt: nächster D-Arzt, Krankenhaus, Zufahrt, Treffpunkt","ref":["UNF-08"]},{"id":"s18","text":"Baustelle bei Claude im Gedächtnis angelegt (PROJEKTE.md)","ref":[]}]},{"id":"einr","titel":"Baustelleneinrichtung","kurz":"Einrichtung","art":"einmalig","punkte":[{"id":"e01","text":"Bauzaun bzw. Absperrung gegen Unbefugte, Warnschilder","ref":[]},{"id":"e02","text":"Bauschild aufgestellt","ref":["VOR-07"]},{"id":"e03","text":"Vorankündigung und Notfall-Aushang ausgehängt","ref":["BSV-02"]},{"id":"e04","text":"Baustromverteiler mit RCD von Elektrofachkraft aufgestellt und geprüft","ref":["ELE-01"]},{"id":"e05","text":"Toiletten, Waschgelegenheit, Pausencontainer, Trinkwasser vorhanden","ref":["ORG-07"]},{"id":"e06","text":"Verbandkasten in passender Größe, Augenspülflasche, Verbandbuch vor Ort","ref":["ORG-06","UNF-09"]},{"id":"e07","text":"Feuerlöscher bereitgestellt und gekennzeichnet","ref":["BRA-01"]},{"id":"e08","text":"Verkehrswege und Zufahrt für Rettungsdienst frei und befestigt","ref":["BRA-04"]},{"id":"e09","text":"Absturzkanten gesichert, Öffnungen abgedeckt oder umwehrt","ref":["ABS-01","ABS-05"]},{"id":"e10","text":"Gerüst übergeben: Prüfprotokoll und Kennzeichnung vorhanden","ref":["ABS-07"]},{"id":"e11","text":"Kran: Standsicherheit, Prüfung nach Aufbau, Kranführer beauftragt","ref":["MAS-02"]},{"id":"e12","text":"Verkehrssicherung nach Anordnung aufgestellt","ref":["VER-01"]},{"id":"e13","text":"Abfallcontainer getrennt und beschriftet","ref":["UMW-01"]},{"id":"e14","text":"Baumschutz aufgestellt (Zaun im Wurzelbereich)","ref":["UMW-04"]},{"id":"e15","text":"Baustellenordner angelegt (GBU, Pläne, Prüfnachweise, Bautagebuch)","ref":[]}]},{"id":"pers","titel":"Personal und Arbeitsschutz","kurz":"Personal","art":"einmalig","punkte":[{"id":"p01","text":"Pflichtenübertragung an Bauleiter und Polier schriftlich","ref":["ORG-03"]},{"id":"p02","text":"Erstunterweisung aller Beschäftigten (auch Nachunternehmer) dokumentiert","ref":["ORG-02","ORG-04"]},{"id":"p03","text":"Ersthelfer in ausreichender Zahl benannt, Ausbildung nicht älter als 2 Jahre","ref":["ORG-05"]},{"id":"p04","text":"Brandschutzhelfer benannt","ref":["BRA-03"]},{"id":"p05","text":"PSA ausgegeben, Ausgabe quittiert","ref":["PSA-01","PSA-02"]},{"id":"p06","text":"Schriftliche Beauftragungen: Bagger, Kran, Stapler, Hubarbeitsbühne","ref":["MAS-01","MAS-03","MAS-04"]},{"id":"p07","text":"Arbeitsmedizinische Vorsorge geprüft (Lärm, Atemschutz, Feuchtarbeit …)","ref":["ORG-08","ORG-09"]},{"id":"p08","text":"Betriebsanweisungen, Gefahrstoffverzeichnis, Sicherheitsdatenblätter vor Ort","ref":["GEF-01","MAS-07"]},{"id":"p09","text":"Ausweis-Belehrung unterschrieben, Personalliste aktuell","ref":["PER-01"]},{"id":"p10","text":"Arbeitszeitaufzeichnung organisiert (binnen 7 Tagen, 2 Jahre aufbewahren)","ref":["PER-03"]},{"id":"p11","text":"Koordination mit anderen Firmen und SiGeKo abgestimmt","ref":["ORG-04"]},{"id":"p12","text":"Sofortmeldung, A1 und Zoll-Meldung bei Entsendung geprüft","ref":["PER-02","PER-08"]}]},{"id":"tag","titel":"Täglich","kurz":"Täglich","art":"tag","punkte":[{"id":"t01","text":"Sicherheitsrundgang: Absturzkanten, Öffnungen, Gerüst unverändert","ref":["ABS-01","ABS-07"]},{"id":"t02","text":"Gräben und Baugruben: Böschung oder Verbau, Schutzstreifen 0,60 m frei","ref":["ERD-02","ERD-04"]},{"id":"t03","text":"PSA wird getragen (Helm, Schuhe, Gehörschutz, Warnkleidung)","ref":["PSA-01"]},{"id":"t04","text":"RCD-Prüftaste gedrückt, Kabel und Geräte ohne Schäden","ref":["ELE-02"]},{"id":"t05","text":"Maschinen: Sichtkontrolle, niemand im Schwenkbereich","ref":["ERD-06"]},{"id":"t06","text":"Verkehrswege und Rettungszufahrt frei, Ordnung und Sauberkeit","ref":["BRA-04"]},{"id":"t07","text":"Wetter geprüft (Sturm, Gewitter, Hitze, Glätte) und Maßnahmen getroffen","ref":["LAE-03","LAE-04"]},{"id":"t08","text":"Bautagebuch geführt (Wetter, Personal, Leistung, Behinderungen, Anordnungen)","ref":["VOB-17"]},{"id":"t09","text":"Fotos der Leistungen gemacht, besonders vor dem Verdecken","ref":["VOB-11"]},{"id":"t10","text":"Lieferscheine geprüft, Stundenlohnzettel eingesammelt","ref":["VOB-05"]},{"id":"t11","text":"Feierabend: Zaun zu, Geräte und Gruben gesichert, Verkehrssicherung kontrolliert","ref":["VER-04"]}]},{"id":"woche","titel":"Wöchentlich","kurz":"Woche","art":"woche","punkte":[{"id":"w01","text":"Baubesprechung durchgeführt, Protokoll verschickt","ref":[]},{"id":"w02","text":"Terminplan Soll/Ist geprüft, Verzug gemeldet","ref":[]},{"id":"w03","text":"Behinderungen und Bedenken schriftlich angezeigt","ref":["VOB-01","VOB-02"]},{"id":"w04","text":"Mehrkosten und Nachträge vor Ausführung angekündigt","ref":["VOB-04"]},{"id":"w05","text":"Stundenlohnzettel beim AG eingereicht (Rückgabe binnen 6 Werktagen)","ref":["VOB-05"]},{"id":"w06","text":"Mängelliste aktualisiert, Mängel bei Nachunternehmern gerügt","ref":["VOB-10"]},{"id":"w07","text":"Sicherheitsbegehung dokumentiert, festgestellte Mängel abgestellt","ref":[]},{"id":"w08","text":"Arbeitszeitaufzeichnungen vollständig","ref":["PER-03"]},{"id":"w09","text":"Gefährdungsbeurteilung für neue Arbeiten und Gewerke fortgeschrieben","ref":["ORG-01"]},{"id":"w10","text":"Kurzunterweisung zum aktuellen Thema gehalten und abgezeichnet","ref":["ORG-02"]}]},{"id":"monat","titel":"Monatlich und Fristen","kurz":"Monat","art":"monat","punkte":[{"id":"m01","text":"Aufmaß erstellt, Abschlagsrechnung gestellt","ref":["VOB-11","VOB-13"]},{"id":"m02","text":"Kostenkontrolle Soll/Ist, Stand der Nachträge","ref":[]},{"id":"m03","text":"Verbandkasten aufgefüllt, Ablaufdaten geprüft","ref":["PRF-02"]},{"id":"m04","text":"Feuerlöscher Sichtkontrolle (Plombe, Druck, Prüfdatum)","ref":["BRA-01"]},{"id":"m05","text":"RCD-Wirksamkeit von Elektrofachkraft gemessen","ref":["ELE-02"]},{"id":"m06","text":"Prüffristen kontrolliert: Elektrogeräte (3 Mon.), Leitern, Anschlagmittel, PSAgA, Maschinen","ref":["PRF-03","PRF-04"]},{"id":"m07","text":"Fällige Unterweisungen und Ersthelfer-Fortbildungen geplant","ref":["ORG-02","ORG-05"]},{"id":"m08","text":"Nachunternehmer-Bescheinigungen noch gültig (§48b, Unbedenklichkeit)","ref":["PER-06"]},{"id":"m09","text":"Verkehrsrechtliche Anordnung noch gültig","ref":["VER-01"]},{"id":"m10","text":"Entsorgungsnachweise abgelegt","ref":["UMW-01"]}]},{"id":"ende","titel":"Abnahme und Abschluss","kurz":"Abschluss","art":"einmalig","punkte":[{"id":"a01","text":"Restleistungen und Mängel vor Fertigstellung abgearbeitet","ref":[]},{"id":"a02","text":"Fertigstellung schriftlich mitgeteilt, förmliche Abnahme verlangt","ref":["VOB-06"]},{"id":"a03","text":"Abnahmeprotokoll unterschrieben, Vorbehalte notiert","ref":["VOB-07","VOB-08"]},{"id":"a04","text":"Revisionsunterlagen, Bedienungs- und Wartungsanleitungen, Fachunternehmererklärungen übergeben","ref":[]},{"id":"a05","text":"Unterlage für spätere Arbeiten übergeben (bei mehreren Arbeitgebern)","ref":["BSV-05"]},{"id":"a06","text":"Gemeinsames Aufmaß, Schlussrechnung fristgerecht gestellt","ref":["VOB-12"]},{"id":"a07","text":"Gewährleistungsende und Bürgschaften in PROJEKTE.md notiert","ref":["VOB-10"]},{"id":"a08","text":"Baustelle geräumt, Verkehrssicherung abgebaut, Flächen wiederhergestellt","ref":[]},{"id":"a09","text":"Fertigstellungsanzeige an Bauaufsicht (falls nach LBO gefordert)","ref":[]},{"id":"a10","text":"Baustellenordner archiviert (Verbandbuch 5 Jahre, Arbeitszeiten 2 Jahre)","ref":["UNF-09","PER-03"]}]},{"id":"unfall","titel":"Bei Unfall","kurz":"Unfall","art":"vorfall","punkte":[{"id":"u01","text":"Unfallstelle abgesichert, Maschinen und Strom aus","ref":["UNF-02"]},{"id":"u02","text":"Notruf 112: Wo, Was, Wie viele, Welche Verletzungen, auf Rückfragen warten","ref":["UNF-01"]},{"id":"u03","text":"Erste Hilfe geleistet","ref":[]},{"id":"u04","text":"Rettungsdienst an der Zufahrt abgeholt und eingewiesen","ref":["UNF-02"]},{"id":"u05","text":"Unternehmer informiert; bei schwerem oder tödlichem Unfall sofort BG BAU, Arbeitsschutzbehörde, Polizei","ref":["UNF-05"]},{"id":"u06","text":"Unfallstelle fotografiert und unverändert gelassen","ref":["UNF-05"]},{"id":"u07","text":"Zeugen mit Telefonnummer notiert","ref":[]},{"id":"u08","text":"Verbandbuch-Eintrag gemacht","ref":["UNF-09"]},{"id":"u09","text":"D-Arzt-Vorstellung veranlasst (AU über den Unfalltag, Behandlung > 1 Woche)","ref":["UNF-08"]},{"id":"u10","text":"Unfall-Erfassungsbogen ausgefüllt","ref":[]},{"id":"u11","text":"Unfallanzeige an BG BAU binnen 3 Tagen (wenn mehr als 3 Tage arbeitsunfähig)","ref":["UNF-03","UNF-04"]},{"id":"u12","text":"Ursache analysiert, Maßnahmen umgesetzt, Gefährdungsbeurteilung fortgeschrieben","ref":["UNF-13"]},{"id":"u13","text":"Kolonne zum Unfall unterwiesen und Nachweis abgelegt","ref":["UNF-12"]}]}],"fakten":{"VOB-14":{"text":"Ausführungsbeginn: binnen 12 Werktagen nach Aufforderung (wenn keine Frist vereinbart).","quelle":"VOB/B §5 Abs.2"},"VOR-06":{"text":"Baubeginnanzeige: Bauherr teilt Ausführungsbeginn mind. 1 Woche vorher der Bauaufsicht mit. Baugenehmigung und Bauvorlagen müssen ab Baubeginn auf der Baustelle vorliegen.","quelle":"MBO §72 (⚠ LBO)"},"VOR-05":{"text":"Bauleiter nach Landesbauordnung: überwacht, dass nach genehmigten Bauvorlagen und öffentlich-rechtlichen Vorschriften gebaut wird, und sorgt für sicheren bautechnischen Betrieb der Baustelle. Bauherr teilt Namen der Bauaufsicht vor Baubeginn mit.","quelle":"MBO §56 (⚠ LBO des Landes)"},"BSV-02":{"text":"Vorankündigung (Anhang I) an Arbeitsschutzbehörde spätestens 2 Wochen vor Einrichtung der Baustelle, wenn > 30 Arbeitstage UND > 20 Beschäftigte gleichzeitig ODER > 500 Personentage. Sichtbar aushängen, bei erheblichen Änderungen anpassen.","quelle":"BaustellV §2 Abs.2"},"BSV-03":{"text":"SiGe-Plan nötig, wenn Vorankündigung nötig ist ODER Beschäftigte mehrerer Arbeitgeber + besonders gefährliche Arbeiten (Anhang II).","quelle":"BaustellV §2 Abs.3"},"BSV-04":{"text":"SiGeKo: vom Bauherrn zu bestellen, sobald Beschäftigte mehrerer Arbeitgeber tätig werden (gleichzeitig oder nacheinander). Für Planung UND Ausführung.","quelle":"BaustellV §3"},"ORG-01":{"text":"Baustellenbezogene Gefährdungsbeurteilung VOR Arbeitsbeginn, dokumentiert, bei Änderungen fortschreiben.","quelle":"ArbSchG §5, §6"},"ERD-01":{"text":"Vor jedem Bodeneingriff Leitungsauskunft ALLER Betreiber (Strom, Gas, Wasser, Abwasser, Telekom/Glasfaser, Fernwärme, Pipelines) einholen, Pläne vor Ort mitführen, Lage durch Suchschlitze von Hand feststellen.","quelle":"DGUV I 203-017 / Merkblätter Netzbetreiber"},"ERD-07":{"text":"Kampfmittel: vor Erdarbeiten Kampfmittelauskunft beim Kampfmittelräumdienst des Landes einholen (v. a. Norddeutschland, Städte, Bahn/Hafen). Verdacht → Arbeit sofort einstellen, Polizei.","quelle":"Landesrecht ⚠"},"GEF-03":{"text":"Asbest: Bauherr (Veranlasser) muss vor Arbeiten an Gebäuden mit Baubeginn vor 31.10.1993 Informationen zu Asbest liefern/erkunden lassen. Asbestarbeiten nur mit Sachkunde und Anzeige an Behörde vor Beginn. ⚠ Fristen GefStoffV 2024 prüfen.","quelle":"GefStoffV (Novelle 12/2024), TRGS 519"},"GEF-04":{"text":"Alte Mineralwolle (vor 2000) = KMF: Schutzmaßnahmen nach TRGS 521. Teer/PAK, PCB in Bestandsbauten: Schadstofferkundung vor Abbruch/Umbau.","quelle":"TRGS 521, TRGS 524"},"VER-01":{"text":"Arbeiten im öffentlichen Verkehrsraum: verkehrsrechtliche Anordnung bei der Straßenverkehrsbehörde beantragen (Verkehrszeichenplan) VOR Beginn; Absicherung nach RSA 21.","quelle":"StVO §45 Abs.6, RSA 21"},"VER-02":{"text":"Aufgrabung/Nutzung öffentlicher Flächen: Aufbruch-/Sondernutzungserlaubnis beim Straßenbaulastträger.","quelle":"Straßenrecht ⚠"},"ELE-01":{"text":"Baustrom nur über Baustromverteiler (DIN EN 61439-4) mit Fehlerstrom-Schutzschalter (RCD) ≤ 30 mA für Steckdosenstromkreise. Geräte/Leitungen baustellengeeignet (z. B. H07RN-F, IP44).","quelle":"DGUV I 203-006"},"UMW-01":{"text":"Bau-/Abbruchabfälle getrennt sammeln (Glas, Kunststoff, Metall, Holz, Dämmmaterial, Bitumengemische, Gips, Beton, Ziegel, Fliesen/Keramik) und dokumentieren (Fotos, Lieferscheine, Entsorgungsbelege). Ausnahmen begründen und dokumentieren. Bis 10 m³ keine Dokumentationspflicht.","quelle":"GewAbfV §8, §9"},"UMW-03":{"text":"Bodenaushub/RC-Material: Analytik und Deklaration vor Abfuhr/Einbau; Einbau mineralischer Ersatzbaustoffe nach Ersatzbaustoffverordnung (seit 1.8.2023), ggf. Anzeige.","quelle":"ErsatzbaustoffV"},"PER-06":{"text":"Bauabzugsteuer: 15 % vom Bruttobetrag einbehalten und ans Finanzamt abführen, wenn keine gültige Freistellungsbescheinigung vorliegt (Bagatelle 5.000 €/Jahr je Leistendem). Gültigkeit online beim BZSt prüfen.","quelle":"EStG §48, §48b"},"PER-07":{"text":"NU-Unterlagen: Gewerbe/Handwerksrolle, Freistellungsbescheinigung §48b, Unbedenklichkeitsbescheinigungen (Finanzamt, Krankenkassen, BG BAU, SOKA-BAU), Betriebshaftpflicht, Mindestlohnerklärung, Arbeitsschutznachweise (GBU, Unterweisung), ggf. PQ-VOB.","quelle":"Praxis"},"UNF-08":{"text":"Vorstellung beim Durchgangsarzt (D-Arzt), wenn: Arbeitsunfähigkeit über den Unfalltag hinaus ODER Behandlung voraussichtlich > 1 Woche ODER Heil-/Hilfsmittel nötig ODER Wiedererkrankung. Augen-/HNO-Verletzungen direkt zum Facharzt.","quelle":"DGUV V1 §24; Vertrag Ärzte/UV-Träger"},"VOR-07":{"text":"Bauschild: Bezeichnung des Vorhabens, Namen und Anschriften von Bauherr, Entwurfsverfasser, Bauleiter und Rohbauunternehmer; dauerhaft, von der öffentlichen Verkehrsfläche lesbar.","quelle":"MBO §11 Abs.3 (⚠ LBO)"},"ORG-07":{"text":"Sanitär/Unterkunft: Toiletten, Waschgelegenheit, Pausen-/Aufenthaltsmöglichkeit, Trinkwasser – Umfang nach Beschäftigtenzahl und Dauer.","quelle":"ASR A4.1, ASR A4.2"},"ORG-06":{"text":"Verbandkasten auf Baustellen: 1–10 Beschäftigte 1× klein (DIN 13157), 11–50 1× groß (DIN 13169), je weitere 50 ein großer zusätzlich. Inhalt regelmäßig prüfen.","quelle":"ASR A4.3 ⚠"},"UNF-09":{"text":"Verbandbuch: JEDE Erste-Hilfe-Leistung dokumentieren (auch Kleinstverletzung), 5 Jahre aufbewahren, vertraulich. Ist Beweis für spätere BG-Ansprüche.","quelle":"DGUV V1 §24 Abs.6"},"BRA-01":{"text":"Feuerlöscher in ausreichender Zahl (Löschmitteleinheiten nach ASR A2.2), gut erreichbar, gekennzeichnet; Prüfung alle 2 Jahre.","quelle":"ASR A2.2"},"BRA-04":{"text":"Flucht- und Rettungswege freihalten und kennzeichnen; Anfahrt für Feuerwehr/Rettungsdienst freihalten.","quelle":"ASR A2.3"},"ABS-01":{"text":"Absturzsicherung ab > 1 m: freiliegende Treppenläufe/-absätze, Wandöffnungen. Ab > 2 m: alle übrigen Arbeitsplätze. Unabhängig von der Höhe: an/über Wasser oder Stoffen, in denen man versinken kann.","quelle":"ASR A2.1, DGUV V38"},"ABS-05":{"text":"Öffnungen in Decken/Böden: umwehren oder begehbar, durchtrittsicher und unverschieblich abdecken, kennzeichnen.","quelle":"ASR A2.1"},"ABS-07":{"text":"Gerüst: Gerüstersteller prüft und übergibt mit Prüfprotokoll + Kennzeichnung (Last-/Breitenklasse, Freigabe). Jeder Nutzer prüft vor Benutzung (Sichtprüfung). Nicht freigegeben → Zugang sperren, Schild „Gerüst gesperrt“. Nach Sturm/Umbau/Stillstand erneut prüfen.","quelle":"BetrSichV, TRBS 2121-1"},"MAS-02":{"text":"Krane: Kranführer ≥ 18 J., geeignet, ausgebildet, schriftlich beauftragt. Prüfung vor Inbetriebnahme und mind. jährlich (Prüfbuch); Sachverständigenprüfungen nach DGUV G 309-001.","quelle":"DGUV V52, BetrSichV"},"UMW-04":{"text":"Bäume: Wurzelbereich (Kronentraufe + 1,5 m) schützen (Zaun, keine Lagerung/Befahrung). Fällen/starker Rückschnitt verboten 1.3.–30.9.; Baumschutzsatzung der Gemeinde beachten.","quelle":"DIN 18920, BNatSchG §39 Abs.5"},"ORG-03":{"text":"Pflichtenübertragung an Bauleiter/Polier schriftlich, mit Unterschrift, Umfang und Befugnisse klar.","quelle":"ArbSchG §13, DGUV V1 §13"},"ORG-02":{"text":"Unterweisung: vor Tätigkeitsbeginn, bei Änderungen, mind. jährlich; Jugendliche mind. halbjährlich. Dokumentieren mit Unterschrift, in verständlicher Sprache.","quelle":"ArbSchG §12, DGUV V1 §4, JArbSchG §29"},"ORG-04":{"text":"Mehrere Unternehmer mit gegenseitiger Gefährdung: abstimmen; Koordinator mit Weisungsbefugnis bestimmen. Fremdfirmen vor Arbeitsaufnahme baustellenbezogen einweisen.","quelle":"ArbSchG §8, DGUV V1 §6"},"ORG-05":{"text":"Ersthelfer: 2–20 Anwesende → 1; > 20 → 10 %. Ausbildung 9 UE, Fortbildung alle 2 Jahre (9 UE). Praxis Bau: jede Kolonne/Arbeitsstelle mit Ersthelfer.","quelle":"DGUV V1 §26"},"BRA-03":{"text":"Brandschutzhelfer: i. d. R. 5 % der Beschäftigten.","quelle":"ASR A2.2"},"PSA-01":{"text":"Grundausstattung: Schutzhelm (EN 397), Sicherheitsschuhe S3, Schutzhandschuhe, Schutzbrille; Warnkleidung (EN ISO 20471) im Verkehrsbereich; Gehör-/Atemschutz nach GBU.","quelle":"PSA-BV, DGUV R 112-Reihe"},"PSA-02":{"text":"Arbeitgeber stellt PSA kostenlos, setzt Tragepflicht durch. PSA Kategorie III (gegen Absturz, Atemschutz, Gehörschutz) mit Unterweisung inkl. praktischer Übung.","quelle":"PSA-BV §3"},"MAS-01":{"text":"Erdbaumaschinen: Führer ≥ 18 J., geeignet, unterwiesen, Befähigung nachgewiesen, SCHRIFTLICH beauftragt. Prüfung mind. jährlich durch befähigte Person.","quelle":"DGUV R 100-500 Kap. 2.12"},"MAS-03":{"text":"Stapler/Teleskopstapler: Fahrer ≥ 18 J., ausgebildet (Fahrausweis), schriftlich beauftragt; jährliche Prüfung.","quelle":"DGUV V68 §7"},"MAS-04":{"text":"Hubarbeitsbühnen: Bediener unterwiesen/ausgebildet, schriftlich beauftragt; arbeitstäglich Sichtprüfung, jährlich durch befähigte Person. Im Korb von Gelenk-/Teleskopbühnen PSA-Rückhaltesystem.","quelle":"DGUV G 308-008"},"ORG-08":{"text":"Arbeitsmedizinische Vorsorge: Pflicht = Voraussetzung für die Tätigkeit; Angebot = anbieten; Wunsch = ermöglichen. Vorsorgekartei führen. Erste Pflichtvorsorge vor Tätigkeitsbeginn, zweite nach ≤ 12 Monaten, danach ≤ 36 Monate.","quelle":"ArbMedVV, AMR 2.1"},"ORG-09":{"text":"Typisch Bau – Pflicht: Lärm ≥ 85 dB(A), Hand-Arm-Vibration ≥ 5 m/s², Atemschutz Gruppe 2/3, Feuchtarbeit ≥ 4 h, Asbest. Angebot: Lärm ≥ 80, Vibration ≥ 2,5, Atemschutz Gr. 1, UV im Freien, Bildschirm.","quelle":"ArbMedVV Anhang"},"GEF-01":{"text":"Gefahrstoffverzeichnis, Sicherheitsdatenblätter, Betriebsanweisungen, Unterweisung; Ersatzstoffprüfung dokumentieren.","quelle":"GefStoffV §6, §14"},"MAS-07":{"text":"Betriebsanweisung für jede Maschine/Tätigkeit, Betriebsanleitung des Herstellers am Gerät.","quelle":"BetrSichV §12"},"PER-01":{"text":"Mitführungspflicht: Beschäftigte im Baugewerbe führen Personalausweis/Pass/Passersatz mit; Arbeitgeber belehrt nachweislich schriftlich und bewahrt Belehrung auf.","quelle":"SchwarzArbG §2a"},"PER-03":{"text":"Arbeitszeitaufzeichnung im Baugewerbe: Beginn, Ende, Dauer spätestens bis Ablauf des 7. Tages nach dem Arbeitstag; mind. 2 Jahre aufbewahren.","quelle":"MiLoG §17, AEntG §19"},"PER-02":{"text":"Sofortmeldung an die Rentenversicherung spätestens bei Beschäftigungsaufnahme (Baugewerbe).","quelle":"§28a Abs.4 SGB IV"},"PER-08":{"text":"Ausländische Firmen/Entsendung: A1-Bescheinigung, Meldung beim Zoll vor Beginn (Meldeportal Mindestlohn), Unterlagen in deutscher Sprache bereithalten; Drittstaatsangehörige: Aufenthaltstitel mit Arbeitserlaubnis.","quelle":"AEntG §18, §19"},"ERD-02":{"text":"Gräben/Baugruben ohne Verbau: bis 1,25 m senkrecht (standfester Boden, Gelände ≤ 1:10). 1,25–1,75 m nur in mind. steifem bindigem Boden mit 45°-Abböschung bzw. Sicherung des oberen Teils. Über 1,75 m: Verbau oder Böschung.","quelle":"DIN 4124"},"ERD-04":{"text":"Lastfreier Schutzstreifen ≥ 0,60 m an Graben-/Böschungskante (kein Aushub, kein Material). Abstand Fahrzeuge/Geräte zur Kante bei unverbauten Gruben: ≤ 12 t ≥ 1,00 m, > 12 t ≥ 2,00 m. ⚠ Werte prüfen.","quelle":"DIN 4124"},"ELE-02":{"text":"RCD: arbeitstäglich Prüftaste durch Benutzer; Wirksamkeit in nichtstationären Anlagen monatlich durch Elektrofachkraft.","quelle":"DGUV V3 DA"},"ERD-06":{"text":"Niemand im Schwenk-/Arbeitsbereich von Baggern; Rückwärtsfahren bei eingeschränkter Sicht nur mit Einweiser oder Kamera.","quelle":"DGUV R 100-500 Kap. 2.12"},"LAE-03":{"text":"Sonne/Hitze: Trinkwasser bereitstellen, Schatten/Pausen, Arbeitszeit in kühlere Stunden verlegen, UV-Schutz (Kleidung, Nackenschutz, Sonnencreme). Angebotsvorsorge bei regelmäßig ≥ 1 h/Tag intensiver UV-Belastung im Freien.","quelle":"ArbMedVV, GBU"},"LAE-04":{"text":"Gewitter/Sturm: Kranbetrieb nach Herstellervorgaben (Windmesser) einstellen, Arbeiten auf Dach/Gerüst unterbrechen, lose Teile sichern.","quelle":"Herstellerangaben, GBU"},"VOB-17":{"text":"Bautagebuch täglich: Datum, Wetter/Temperatur, Personal (eigen/NU), Geräte, Leistungen, Lieferungen, Behinderungen, Anordnungen des AG, Besonderheiten (Unfälle, Prüfungen, Besuche), Fotos, Unterschrift. Wichtigstes Beweismittel.","quelle":"Praxis"},"VOB-11":{"text":"Aufmaß möglichst gemeinsam; Leistungen, die später verdeckt werden, rechtzeitig gemeinsam feststellen (Fotos!).","quelle":"VOB/B §14 Abs.2"},"VOB-05":{"text":"Stundenlohnarbeiten vor Beginn anzeigen. Stundenlohnzettel werktäglich oder wöchentlich einreichen; AG muss binnen 6 Werktagen zurückgeben, sonst gelten sie als anerkannt. Stundenlohnrechnung spätestens 4 Wochen nach Abschluss.","quelle":"VOB/B §15 Abs.3, 4"},"VER-04":{"text":"Kontrolle der Absicherung täglich und nach Feierabend (Beleuchtung, Baken, Schilder); Kontrollen dokumentieren (Bautagebuch).","quelle":"RSA 21"},"VOB-01":{"text":"Bedenkenanzeige: gegen Ausführungsart, Stoffe/Bauteile, Vorleistungen anderer → UNVERZÜGLICH, möglichst vor Beginn, SCHRIFTLICH an den Auftraggeber (nicht nur an Architekten). Sonst Haftung für Mängel.","quelle":"VOB/B §4 Abs.3, §13 Abs.3"},"VOB-02":{"text":"Behinderungsanzeige: unverzüglich schriftlich, sonst kein Anspruch auf Fristverlängerung/Schadensersatz (außer offenkundig). Ende der Behinderung anzeigen, Arbeiten unverzüglich wieder aufnehmen.","quelle":"VOB/B §6 Abs.1, 3"},"VOB-04":{"text":"Zusätzliche Leistung: Mehrvergütung VOR Ausführungsbeginn ankündigen (Anspruchsvoraussetzung!). Geänderte Leistung: neuen Preis möglichst vor Ausführung vereinbaren. Ohne Auftrag erbrachte Leistung: nur bei Anerkennung oder notwendig + unverzüglich angezeigt.","quelle":"VOB/B §2 Abs.5, 6, 8"},"VOB-10":{"text":"Mängelverjährung VOB/B: Bauwerke 4 Jahre, andere Werke/Grundstücksarbeiten 2 Jahre, wartungsbedürftige maschinelle/elektrotechnische Teile ohne Wartungsvertrag 2 Jahre. BGB: Bauwerk 5 Jahre. Schriftliche Mängelrüge → für gerügten Mangel 2 Jahre ab Zugang (nicht vor Ablauf der Regelfrist).","quelle":"VOB/B §13 Abs.4, 5; BGB §634a"},"VOB-13":{"text":"Abschlagszahlung binnen 21 Tagen nach Zugang; Schlusszahlung spätestens 30 Tage nach Zugang der Schlussrechnung (max. 60 Tage, wenn vereinbart). Vorbehalt gegen Schlusszahlung binnen 28 Tagen, Begründung binnen weiterer 28 Tage.","quelle":"VOB/B §16"},"PRF-02":{"text":"Monatlich: RCD-Wirksamkeit (EFK), Verbandkasten-Inhalt, Feuerlöscher Sichtkontrolle.","quelle":"DGUV V3, Praxis"},"PRF-03":{"text":"Vierteljährlich: ortsveränderliche Elektrogeräte und Leitungen auf Baustellen (Richtwert).","quelle":"DGUV V3"},"PRF-04":{"text":"Jährlich: Leitern, Anschlagmittel, PSAgA, Erdbaumaschinen, Stapler, Hubarbeitsbühnen, Krane, Unterweisung.","quelle":"div."},"VOB-06":{"text":"Abnahme auf Verlangen binnen 12 Werktagen. Förmliche Abnahme auf Verlangen. Fiktive Abnahme (wenn keine verlangt): 12 Werktage nach schriftlicher Fertigstellungsmitteilung oder 6 Werktage nach Beginn der Benutzung.","quelle":"VOB/B §12 Abs.1, 4, 5"},"VOB-07":{"text":"Bei der Abnahme bekannte Mängel und Vertragsstrafe VORBEHALTEN, sonst verloren (AG-Sicht).","quelle":"VOB/B §11 Abs.4, §12 Abs.4+5"},"VOB-08":{"text":"Wirkung der Abnahme: Gefahrübergang, Beginn der Verjährung, Beweislast für Mängel geht auf AG über, Fälligkeit der Schlusszahlung.","quelle":"BGB §640, §641"},"BSV-05":{"text":"Unterlage für spätere Arbeiten (UsA) bei mehreren Arbeitgebern: Koordinator stellt zusammen (Wartung, Dacharbeiten, Anschlagpunkte).","quelle":"BaustellV §3 Abs.2 Nr.3, RAB 32"},"VOB-12":{"text":"Schlussrechnung: bei Ausführungsfrist ≤ 3 Monate spätestens 12 Werktage nach Fertigstellung; je weitere 3 Monate + 6 Werktage.","quelle":"VOB/B §14 Abs.3"},"UNF-02":{"text":"Reihenfolge: Unfallstelle absichern → Notruf → Erste Hilfe → Rettungsdienst an Zufahrt abholen/einweisen → Unternehmer/Vorgesetzte informieren.","quelle":"DGUV I 204-022"},"UNF-01":{"text":"Notruf 112 (Rettungsdienst/Feuerwehr), Polizei 110. Meldung: Wo? Was? Wie viele Verletzte? Welche Verletzungen? Warten auf Rückfragen.","quelle":"Praxis"},"UNF-05":{"text":"Tödliche, schwere und Massenunfälle: SOFORT telefonisch an BG BAU und Arbeitsschutzbehörde; bei Todesfall auch Polizei. Unfallstelle bis zur Freigabe nicht verändern (außer zur Rettung). Unfallanzeige trotzdem schriftlich/elektronisch.","quelle":"Praxis BG/DGUV"},"UNF-03":{"text":"Unfallanzeige an die BG, wenn Versicherter getötet oder MEHR ALS 3 TAGE arbeitsunfähig (Unfalltag zählt nicht). Frist: binnen 3 Tagen nach Kenntnis.","quelle":"§193 Abs.1+4 SGB VII"},"UNF-04":{"text":"Meldeweg seit UVAV 2024 elektronisch (Serviceportal der UV-Träger / BG-BAU-Onlinezugang / Lohnsoftware). Alte Papiervordrucke übergangsweise bis 31.12.2027 zulässig.","quelle":"§7 UVAV 2024"},"UNF-13":{"text":"Nach jedem Unfall: Ursachenanalyse (Technik/Organisation/Person), Maßnahmen festlegen, GBU fortschreiben, Unterweisung dokumentieren.","quelle":"ArbSchG §5"},"UNF-12":{"text":"Beinahe-Unfälle erfassen, auswerten, Gefährdungsbeurteilung anpassen, Kolonne unterweisen.","quelle":"ArbSchG §3, §5"}}}</script>
+<script>
+(function () {
+  "use strict";
+  var DATEN = JSON.parse(document.getElementById("daten").textContent);
+  var ABSCHNITTE = DATEN.abschnitte || [];
+  var FAKTEN = DATEN.fakten || {};
+  var ALLGEMEIN = "allgemein";
+  var RHYTHMUS = { einmalig: "einmal je Baustelle", tag: "jeden Arbeitstag", woche: "jede Woche", monat: "jeden Monat", vorfall: "bei jedem Unfall" };
+  var WT = ["Sonntag", "Montag", "Dienstag", "Mittwoch", "Donnerstag", "Freitag", "Samstag"];
+  var MON = ["Januar", "Februar", "März", "April", "Mai", "Juni", "Juli", "August", "September", "Oktober", "November", "Dezember"];
+  var HAKEN_SVG = '<svg viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M5 12.5l4.5 4.5L19 7.5"/></svg>';
+
+  function $(id) { return document.getElementById(id); }
+  function lies(k, std) { try { var v = localStorage.getItem(k); return v === null ? std : JSON.parse(v); } catch (e) { return std; } }
+  function merke(k, v) { try { localStorage.setItem(k, JSON.stringify(v)); } catch (e) { /* ohne Speicher weiter */ } }
+  function warte(ms) { return new Promise(function (r) { setTimeout(r, ms); }); }
+
+  var z = {
+    modus: "start",          // start | db | lokal | lesen
+    baustellen: [],
+    bs: lies("bl-bs", ALLGEMEIN),
+    reiter: lies("bl-reiter", "tag"),
+    versatz: { tag: 0, woche: 0, monat: 0 },
+    haken: {},               // Dokument-ID -> { punktId: Zeitpunkt }
+    ausstehend: {},          // Dokument-ID -> true, solange eine eigene Änderung noch nicht gespeichert ist
+    offen: {}                // aufgeklappte Infos
+  };
+  if (!ABSCHNITTE.some(function (a) { return a.id === z.reiter; })) z.reiter = ABSCHNITTE.length ? ABSCHNITTE[0].id : "";
+  if (typeof z.bs !== "string" || !/^[A-Za-z0-9_\-]+$/.test(z.bs)) z.bs = ALLGEMEIN;
+  var db = null;
+  var abos = {};
+  var bsAbo = null;
+
+  /* ---------- Datum ---------- */
+  function zwei(n) { return String(n).padStart(2, "0"); }
+  function ymd(d) { return d.getFullYear() + "-" + zwei(d.getMonth() + 1) + "-" + zwei(d.getDate()); }
+  function tm(d) { return zwei(d.getDate()) + "." + zwei(d.getMonth() + 1) + "."; }
+  function heute() { var d = new Date(); d.setHours(12, 0, 0, 0); return d; }
+  function plusTage(d, n) { var x = new Date(d); x.setDate(x.getDate() + n); return x; }
+  function montag(d) { return plusTage(d, -((d.getDay() + 6) % 7)); }
+  function isoWoche(d) {
+    var t = new Date(Date.UTC(d.getFullYear(), d.getMonth(), d.getDate()));
+    t.setUTCDate(t.getUTCDate() + 3 - ((t.getUTCDay() + 6) % 7));
+    var jahr = t.getUTCFullYear();
+    var erste = new Date(Date.UTC(jahr, 0, 4));
+    var kw = 1 + Math.round(((t - erste) / 864e5 - 3 + ((erste.getUTCDay() + 6) % 7)) / 7);
+    return { jahr: jahr, kw: kw };
+  }
+  function periode(a) {
+    var v = z.versatz[a.art] || 0, d;
+    if (a.art === "tag") {
+      d = plusTage(heute(), v);
+      return { key: "T-" + ymd(d), label: WT[d.getDay()] + ", " + tm(d) + d.getFullYear(), jetzt: v === 0 };
+    }
+    if (a.art === "woche") {
+      d = plusTage(heute(), 7 * v);
+      var w = isoWoche(d), mo = montag(d), so = plusTage(mo, 6);
+      return { key: "W-" + w.jahr + "-W" + zwei(w.kw), label: "KW " + w.kw + " · " + tm(mo) + "–" + tm(so) + so.getFullYear(), jetzt: v === 0 };
+    }
+    if (a.art === "monat") {
+      var h = heute();
+      d = new Date(h.getFullYear(), h.getMonth() + v, 1, 12);
+      return { key: "M-" + d.getFullYear() + "-" + zwei(d.getMonth() + 1), label: MON[d.getMonth()] + " " + d.getFullYear(), jetzt: v === 0 };
+    }
+    return { key: a.id, label: null, jetzt: true };
+  }
+  function dokId(a) { return z.bs + "__" + periode(a).key; }
+  function abschnitt(id) { for (var i = 0; i < ABSCHNITTE.length; i++) if (ABSCHNITTE[i].id === id) return ABSCHNITTE[i]; return null; }
+  function hakenVon(a) { return z.haken[dokId(a)] || {}; }
+  function anzahl(a) { var h = hakenVon(a); return a.punkte.filter(function (p) { return h[p.id]; }).length; }
+  function bsName(id) {
+    if (id === ALLGEMEIN) return "Allgemein";
+    for (var i = 0; i < z.baustellen.length; i++) if (z.baustellen[i].id === id) return z.baustellen[i].name;
+    return id;
+  }
+  function zeitText(iso) {
+    var d = new Date(iso);
+    if (isNaN(d)) return "";
+    return "erledigt " + tm(d) + " " + zwei(d.getHours()) + ":" + zwei(d.getMinutes());
+  }
+
+  /* ---------- Status ---------- */
+  function status(text, art) {
+    var el = $("status");
+    el.textContent = text;
+    el.className = art || "";
+  }
+  function setzeModus(m) {
+    z.modus = m;
+    if (m === "db") status("Häkchen werden gespeichert und sind auf allen Geräten gleich.");
+    else if (m === "lokal") status("Häkchen werden nur auf diesem Gerät gespeichert.");
+    else if (m === "lesen") status("Nur Lesezugriff – Änderungen werden nicht gespeichert.", "lesen");
+    renderBaustellen();
+    aktualisieren();
+  }
+  function fehler(e) {
+    var c = e && e.code;
+    if (c === "invalid_argument" || c === "not_granted" || c === "revoked") setzeModus("lesen");
+    else if (c === "quota_exceeded") status("Speicher voll – bitte Claude bitten, alte Einträge aufzuräumen.", "fehler");
+    else status("Nicht gespeichert – Verbindung prüfen und erneut abhaken.", "fehler");
+  }
+
+  /* ---------- Speichern ---------- */
+  var timer = {}, kette = {}, version = {}, entwurf = {};
+  function speichern(a, id) {
+    z.ausstehend[id] = true;
+    version[id] = (version[id] || 0) + 1;
+    // Stand zum Zeitpunkt des Klicks festhalten – auch wenn danach Baustelle oder Zeitraum wechseln
+    entwurf[id] = {
+      baustelle: z.bs, baustelleName: bsName(z.bs), abschnitt: a.id, periode: periode(a).key,
+      haken: Object.assign({}, z.haken[id] || {})
+    };
+    clearTimeout(timer[id]);
+    timer[id] = setTimeout(function () {
+      var v = version[id];
+      kette[id] = (kette[id] || Promise.resolve()).then(function () { return schreibeDok(id); }).then(function () {
+        if (version[id] === v) delete z.ausstehend[id];
+      });
+    }, 350);
+  }
+  function schreibeDok(id) {
+    var body = Object.assign({}, entwurf[id], { geaendert: new Date().toISOString() });
+    if (z.modus === "lokal") {
+      var alle = lies("bl-stand", {});
+      alle[id] = body;
+      merke("bl-stand", alle);
+      return Promise.resolve();
+    }
+    if (z.modus !== "db") return Promise.resolve();
+    return db.doc("stand/" + id).set(body).catch(function (e) {
+      if (e && e.code === "unavailable") {
+        return warte(400 + Math.random() * 800).then(function () { return db.doc("stand/" + id).set(body); }).catch(fehler);
+      }
+      fehler(e);
+    });
+  }
+
+  /* ---------- Laden / Abonnieren ---------- */
+  function abonnieren() {
+    var soll = {};
+    ABSCHNITTE.forEach(function (a) { soll[dokId(a)] = true; });
+    Object.keys(abos).forEach(function (id) {
+      if (!soll[id]) { try { abos[id](); } catch (e) { /* schon beendet */ } delete abos[id]; }
+    });
+    Object.keys(soll).forEach(function (id) {
+      if (abos[id]) return;
+      if (z.modus === "db") {
+        abos[id] = db.doc("stand/" + id).onSnapshot(function (s) {
+          if (z.ausstehend[id]) return;
+          var d = s.exists ? s.data() : null;
+          z.haken[id] = Object.assign({}, (d && d.haken) || {});
+          aktualisieren();
+        }, function (e) {
+          delete abos[id];
+          if (e && e.code === "revoked") setzeModus("lesen");
+          else status("Live-Abgleich unterbrochen – Seite neu laden.", "fehler");
+        });
+      } else if (z.modus === "lokal") {
+        var alle = lies("bl-stand", {});
+        z.haken[id] = Object.assign({}, (alle[id] && alle[id].haken) || {});
+        abos[id] = function () {};
+      }
+    });
+    aktualisieren();
+  }
+  function baustellenLaden() {
+    if (z.modus === "db") {
+      if (bsAbo) return;
+      bsAbo = db.collection("baustellen").onSnapshot(function (q) {
+        z.baustellen = q.docs.map(function (d) { var x = d.data() || {}; return { id: d.id, name: String(x.name || d.id), archiviert: !!x.archiviert }; })
+          .filter(function (b) { return !b.archiviert; });
+        if (!q.metadata.fromCache && z.bs !== ALLGEMEIN && !z.baustellen.some(function (b) { return b.id === z.bs; })) wechsle(ALLGEMEIN);
+        else renderBaustellen();
+      }, function () { bsAbo = null; });
+    } else {
+      z.baustellen = lies("bl-baustellen", []);
+      if (z.bs !== ALLGEMEIN && !z.baustellen.some(function (b) { return b.id === z.bs; })) z.bs = ALLGEMEIN;
+      renderBaustellen();
+    }
+  }
+  function anlegen(name) {
+    name = name.trim().slice(0, 80);
+    if (!name) return;
+    if (z.modus === "db") {
+      var ref = db.collection("baustellen").doc();
+      var id = /^[A-Za-z0-9_\-]+$/.test(ref.id) ? ref.id : "b" + Date.now().toString(36);
+      if (id !== ref.id) ref = db.doc("baustellen/" + id);
+      ref.set({ name: name, angelegt: new Date().toISOString() }).then(function () {
+        if (!z.baustellen.some(function (b) { return b.id === id; })) z.baustellen.push({ id: id, name: name });
+        wechsle(id);
+      }).catch(fehler);
+    } else if (z.modus === "lokal") {
+      var lid = "b" + Date.now().toString(36);
+      var liste = lies("bl-baustellen", []);
+      liste.push({ id: lid, name: name });
+      merke("bl-baustellen", liste);
+      z.baustellen = liste;
+      wechsle(lid);
+    }
+  }
+  function wechsle(id) {
+    z.bs = id;
+    merke("bl-bs", id);
+    z.haken = {};
+    renderBaustellen();
+    abonnieren();
+  }
+
+  /* ---------- Darstellung ---------- */
+  function renderBaustellen() {
+    var sel = $("bs-wahl");
+    var liste = [{ id: ALLGEMEIN, name: "Allgemein (ohne Baustelle)" }].concat(
+      z.baustellen.slice().sort(function (a, b) { return a.name.localeCompare(b.name, "de"); }));
+    sel.textContent = "";
+    liste.forEach(function (b) {
+      var o = document.createElement("option");
+      o.value = b.id;
+      o.textContent = b.name;
+      sel.appendChild(o);
+    });
+    sel.value = z.bs;
+    var schreibbar = z.modus === "db" || z.modus === "lokal";
+    $("bs-neu").disabled = !schreibbar;
+  }
+  function renderReiter() {
+    var nav = $("reiter");
+    if (!nav.childElementCount) {
+      ABSCHNITTE.forEach(function (a) {
+        var b = document.createElement("button");
+        b.type = "button";
+        b.setAttribute("role", "tab");
+        b.id = "reiter-" + a.id;
+        b.dataset.id = a.id;
+        if (a.art === "vorfall") b.classList.add("unfall");
+        var n = document.createElement("span"); n.className = "name"; n.textContent = a.kurz;
+        var c = document.createElement("span"); c.className = "zahl";
+        b.appendChild(n); b.appendChild(c);
+        b.addEventListener("click", function () { zeige(a.id); });
+        nav.appendChild(b);
+      });
+    }
+    ABSCHNITTE.forEach(function (a) {
+      var b = $("reiter-" + a.id);
+      var n = anzahl(a);
+      b.setAttribute("aria-selected", String(a.id === z.reiter));
+      b.querySelector(".zahl").textContent = n + "/" + a.punkte.length;
+      b.classList.toggle("fertig", n === a.punkte.length && a.art !== "vorfall");
+    });
+  }
+  var gebaut = null;
+  function baueListe(a) {
+    var ul = $("liste");
+    ul.textContent = "";
+    a.punkte.forEach(function (p) {
+      var li = document.createElement("li");
+      li.className = "punkt";
+      li.id = "punkt-" + p.id;
+      var zeile = document.createElement("div"); zeile.className = "zeile";
+      var lab = document.createElement("label"); lab.className = "haken";
+      var cb = document.createElement("input"); cb.type = "checkbox"; cb.id = "cb-" + p.id;
+      var kasten = document.createElement("span"); kasten.className = "kasten"; kasten.innerHTML = HAKEN_SVG;
+      var txt = document.createElement("span"); txt.className = "text";
+      var t1 = document.createElement("span"); t1.textContent = p.text;
+      var wann = document.createElement("span"); wann.className = "wann";
+      txt.appendChild(t1); txt.appendChild(wann);
+      lab.appendChild(cb); lab.appendChild(kasten); lab.appendChild(txt);
+      zeile.appendChild(lab);
+      cb.addEventListener("change", function () { umschalten(a, p.id, cb.checked); });
+      li.appendChild(zeile);
+      var refs = (p.ref || []).filter(function (r) { return FAKTEN[r]; });
+      if (refs.length) {
+        var k = document.createElement("button");
+        k.type = "button"; k.className = "info-knopf";
+        k.textContent = refs.join(" · ");
+        k.setAttribute("aria-expanded", "false");
+        k.setAttribute("aria-controls", "info-" + p.id);
+        var info = document.createElement("div"); info.className = "info"; info.id = "info-" + p.id; info.hidden = true;
+        refs.forEach(function (r) {
+          var para = document.createElement("p");
+          var idn = document.createElement("span"); idn.className = "id"; idn.textContent = r;
+          var tx = document.createElement("span"); tx.textContent = FAKTEN[r].text;
+          var q = document.createElement("span"); q.className = "quelle"; q.textContent = "Quelle: " + FAKTEN[r].quelle;
+          para.appendChild(idn); para.appendChild(tx); para.appendChild(q);
+          info.appendChild(para);
+        });
+        k.addEventListener("click", function () {
+          var auf = info.hidden;
+          info.hidden = !auf;
+          k.setAttribute("aria-expanded", String(auf));
+          z.offen[p.id] = auf;
+        });
+        if (z.offen[p.id]) { info.hidden = false; k.setAttribute("aria-expanded", "true"); }
+        zeile.appendChild(k);
+        li.appendChild(info);
+      }
+      ul.appendChild(li);
+    });
+    gebaut = a.id;
+  }
+  function aktualisieren() {
+    var a = abschnitt(z.reiter);
+    if (!a) return;
+    if (gebaut !== a.id) baueListe(a);
+    $("titel").textContent = a.titel;
+    $("rhythmus").textContent = RHYTHMUS[a.art] || "";
+    var p = periode(a);
+    $("periode").hidden = !p.label;
+    if (p.label) {
+      $("periode-label").textContent = (a.art === "tag" && p.jetzt ? "Heute, " : "") + p.label;
+      $("jetzt").hidden = p.jetzt;
+      $("vor").disabled = p.jetzt;
+    }
+    $("notruf").hidden = a.art !== "vorfall";
+    $("unten").hidden = a.art !== "vorfall";
+    var h = hakenVon(a);
+    var darf = z.modus === "db" || z.modus === "lokal";
+    a.punkte.forEach(function (pk) {
+      var cb = $("cb-" + pk.id);
+      if (!cb) return;
+      var an = !!h[pk.id];
+      cb.checked = an;
+      cb.disabled = !darf;
+      $("punkt-" + pk.id).classList.toggle("an", an);
+      $("punkt-" + pk.id).querySelector(".wann").textContent = an ? zeitText(h[pk.id]) : "";
+    });
+    var n = anzahl(a), ges = a.punkte.length;
+    $("zaehler").textContent = n === ges ? "Alles erledigt" : n + " von " + ges;
+    $("balken").firstElementChild.style.width = (ges ? (100 * n / ges) : 0) + "%";
+    $("balken").classList.toggle("voll", n === ges);
+    $("leeren").disabled = !darf || n === 0;
+    renderReiter();
+  }
+  function umschalten(a, pid, an) {
+    if (!(z.modus === "db" || z.modus === "lokal")) { aktualisieren(); return; }
+    var id = dokId(a);
+    var h = Object.assign({}, z.haken[id] || {});
+    if (an) h[pid] = new Date().toISOString(); else delete h[pid];
+    z.haken[id] = h;
+    aktualisieren();
+    speichern(a, id);
+  }
+  function zeige(id) {
+    z.reiter = id;
+    merke("bl-reiter", id);
+    aktualisieren();
+    var b = $("reiter-" + id);
+    if (b && b.scrollIntoView) b.scrollIntoView({ block: "nearest", inline: "nearest" });
+  }
+  function verschiebe(schritt) {
+    var a = abschnitt(z.reiter);
+    if (!a || !(a.art in z.versatz)) return;
+    z.versatz[a.art] = schritt === 0 ? 0 : Math.min(0, z.versatz[a.art] + schritt);
+    abonnieren();
+  }
+
+  /* ---------- Bedienung ---------- */
+  $("bs-wahl").addEventListener("change", function (e) { wechsle(e.target.value); });
+  $("bs-neu").addEventListener("click", function () { $("bs-form").hidden = false; $("bs-name").focus(); });
+  $("bs-abbruch").addEventListener("click", function () { $("bs-form").hidden = true; $("bs-name").value = ""; });
+  $("bs-form").addEventListener("submit", function (e) {
+    e.preventDefault();
+    anlegen($("bs-name").value);
+    $("bs-form").hidden = true;
+    $("bs-name").value = "";
+  });
+  $("zurueck").addEventListener("click", function () { verschiebe(-1); });
+  $("vor").addEventListener("click", function () { verschiebe(1); });
+  $("jetzt").addEventListener("click", function () { verschiebe(0); });
+  $("leeren").addEventListener("click", function () { $("leeren").hidden = true; $("bestaetigen").hidden = false; $("leeren-nein").focus(); });
+  function bestaetigenZu() { $("leeren").hidden = false; $("bestaetigen").hidden = true; }
+  $("leeren-nein").addEventListener("click", bestaetigenZu);
+  $("leeren-ja").addEventListener("click", function () {
+    var a = abschnitt(z.reiter);
+    if (a && (z.modus === "db" || z.modus === "lokal")) {
+      var id = dokId(a);
+      z.haken[id] = {};
+      aktualisieren();
+      speichern(a, id);
+    }
+    bestaetigenZu();
+  });
+
+  /* ---------- Start ---------- */
+  $("stand").textContent = DATEN.stand || "";
+  renderBaustellen();
+  aktualisieren();
+
+  var verbinde = window.claude && typeof window.claude.use === "function"
+    ? window.claude.use("db").catch(function () { return null; })
+    : Promise.resolve(null);
+  verbinde.then(function (d) {
+    if (d) { db = d; setzeModus("db"); }
+    else setzeModus("lokal");
+    baustellenLaden();
+    abonnieren();
+  });
+})();
+</script>
