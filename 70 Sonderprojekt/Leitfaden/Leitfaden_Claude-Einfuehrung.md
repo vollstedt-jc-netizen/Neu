@@ -153,7 +153,7 @@ Jeder Hof bekommt dieselbe schlanke Grundlage – und nicht mehr. Fertige Skills
 | Hof-Chat mit Rollen | Matrix-Chat, in dem alle Personen eintragen und Grundfragen stellen | Baustein in Arbeit (siehe unten) |
 | Hof-Server | Ein normaler PC, der rund um die Uhr läuft: Betriebsordner, Matrix-Server für den Hof-Chat, Claude mit dem Platz des Betriebsleiters, alle Programme des Hofes | Betrieb kauft, richtet ein und wartet ihn selbst, nach meiner Anleitung |
 | Fachfragen und Nachweise | Antworten mit Quelle und Datum, Nachweise für Entscheidungen im Moment, Behandlungsliste nach Anweisung des Tierarztes | Baustein (siehe unten) |
-| Dokumentationspflichten | Pflichten-Verzeichnis je Hof; aus Hof-Chat-Einträgen werden die vorgeschriebenen Aufzeichnungen, fristgerecht | Baustein (siehe unten) |
+| Dokumentationspflichten | Pflichten-Verzeichnis je Hof; aus Hof-Chat-Einträgen werden die vorgeschriebenen Aufzeichnungen, fristgerecht; Kontrollmappe auf Knopfdruck | Baustein (siehe unten) |
 | Fundament | Stammdaten und Hof-Glossar, Datensicherung mit Test, Lebenszeichen und Notfallblatt, Skill-Verzeichnis, Diktieren und Fotos, gemeinsamer Hof-Kalender | Abschnitt Fundament (siehe unten) |
 
 **Meine zwei eigenen Skills**
@@ -435,6 +435,26 @@ Die Angaben unten stammen aus Merkblättern von Landesämtern, Kammern und Fachv
 - Im Vorgespräch kreuzen wir an, welche Pflichten den Hof betreffen.
 - Claude führt sie in `00_Claude/Pflichten-Verzeichnis.xlsx` mit Frist, Aufbewahrung, Ablageort und verantwortlicher Person und trägt wiederkehrende Termine in den Hof-Kalender ein.
 - Der Wochenbericht nennt jede Woche, welche Pflicht-Aufzeichnungen fehlen oder überfällig sind, z. B. eine Düngung, die vor mehr als 2 Tagen gemeldet, aber noch nicht aufgezeichnet wurde.
+
+**Kontrollmappe auf Knopfdruck**
+
+Kündigt sich eine Kontrolle an, sagt der Betriebsleiter oder die Bürokraft z. B.: „Stell die Kontrollmappe Düngung für 2026 zusammen.“ Dann läuft es so:
+
+1. Claude sucht alle Nachweise zum Thema zusammen – aus dem Pflichten-Verzeichnis, dem Betriebsordner und dem Logbuch.
+2. Claude legt Kopien geordnet in `05_Behoerden_Antraege/Kontrollen/JJJJ-MM-TT_Thema` ab. Die Originale bleiben, wo sie sind.
+3. Claude schreibt ein Inhaltsverzeichnis mit dem Fundort jedes Dokuments.
+4. Claude listet, was fehlt oder lückenhaft ist, z. B. eine Düngung ohne Aufzeichnung oder eine Unterweisung ohne Unterschrift.
+5. Die Mappe kommt ins Logbuch.
+
+Fehlende Aufzeichnungen werden nie rückdatiert. Was nachgetragen wird, bekommt das heutige Datum und den Vermerk „nachgetragen“. Anfordern dürfen die Mappe nur Betriebsleiter und Bürokraft, weil sie Personaldaten enthalten kann.
+
+| Kontrollmappe | Was hineinkommt |
+| --- | --- |
+| Düngung | Düngebedarfsermittlungen, Aufzeichnungen je Maßnahme, Jahressummen, Nachweise zu Entscheidungen im Moment (z. B. Bodenfrost) |
+| Pflanzenschutz | Aufzeichnungen je Anwendung, Sachkundenachweise, Prüfbescheinigung der Spritze |
+| Arbeitsschutz (SVLFG) | Gefährdungsbeurteilung, Unterweisungen mit Unterschriften, Verbandbuch, Unfallanzeigen |
+| Tierhaltung | Bestandsregister und HIT-Meldungen, Behandlungsliste und Bestandsbuch, Eigenkontrolle im Tierschutz |
+| Sammelantrag und Konditionalität | Antrag, Flächenverzeichnis, Nachweise zu den Auflagen je Fläche |
 
 ## Die ersten Programme gemeinsam einbinden
 
