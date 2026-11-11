@@ -11,7 +11,8 @@ Bitte füllt die Abschnitte 1 bis 5 bis [T − 14] aus und schickt den Bogen zur
 | Name des Betriebs |  |
 | Betriebsleiter: Name, Mail-Adresse, Handynummer |  |
 | Büro-Person: Name, eigene Mail-Adresse, Handynummer |  |
-| Wer soll später im Hof-Chat mitmachen? Name und Rolle (Betriebsleiter, Bürokraft, Angestellte) |  |
+| Wer soll später im Hof-Chat mitmachen? Name und Rolle (Betriebsleiter, Bürokraft, Angestellte, Auszubildende) |  |
+| Bildet ihr aus? Wie viele Auszubildende? |  |
 | Betriebszweige, Tierzahl, Fläche |  |
 | Wie viele Stunden pro Woche fallen Büroarbeiten an? |  |
 | Stallzeiten: Wann passt ein Termin von 5,5 Stunden? |  |
@@ -70,6 +71,9 @@ Bitte jedes Programm eintragen, das ihr im Büro nutzt. Die erste Zeile ist ein 
 | Betriebsnummer(n) |  |
 | Steuernummer oder USt-IdNr. (für Rechnungen) |  |
 | Bankverbindung für Rechnungen |  |
+| Bundesland; liegen Flächen in roten Gebieten oder Wasserschutzgebieten? |  |
+| Hoftierarzt; wie kommen seine Behandlungsanweisungen bei euch an (Beleg, App, mündlich)? |  |
+| Mit welcher Landwirtschaftskammer oder welchem Beratungsring arbeitet ihr? |  |
 | Wichtige Ansprechpartner (z. B. Steuerbüro, Landhandel, Lohnunternehmer, Tierarzt) |  |
 
 ## 7. Musterunterlagen (bis T − 7)
