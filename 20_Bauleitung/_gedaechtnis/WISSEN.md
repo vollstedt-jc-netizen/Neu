@@ -2,7 +2,7 @@
 
 Stand: 10/2026 · Eine Zeile = ein Fakt · Ohne Gewähr: Bei Rechtsfragen den Originaltext prüfen (gesetze-im-internet.de, publikationen.dguv.de, baua.de).
 Format: `ID #tags | Fakt | Quelle`
-Abfrage: `Bauleitung/_gedaechtnis/frag.sh <begriff> [begriff …]` oder `grep -i "#unfall" WISSEN.md`
+Abfrage: `20_Bauleitung/_gedaechtnis/frag.sh <begriff> [begriff …]` oder `grep -i "#unfall" WISSEN.md`
 ⚠ = Wert unsicher oder landesabhängig, vor Verwendung prüfen.
 
 Bereichs-Kürzel → Datei:

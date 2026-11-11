@@ -1,0 +1,16 @@
+# ── Sperrbereich ────────────────────────────────────────────────
+# Die Ordner 70–79 gehören NICHT zum Second Brain.
+# Sie werden nie committet, nie gepusht und fehlen in Cloud-Sitzungen.
+# Diese Regel nicht ändern – pruefen.sh meldet sonst einen Fehler.
+/7[0-9]*
+
+# ── Lokale Claude-Einstellungen (bleiben auf dem eigenen Rechner) ──
+.claude/settings.local.json
+
+# ── Betriebssystem, Office, Python ──────────────────────────────
+.DS_Store
+Thumbs.db
+desktop.ini
+~$*
+*.tmp
+__pycache__/

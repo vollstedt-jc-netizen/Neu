@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """Wandelt die Markdown-Vorlagen in druckfertige Word-Dateien um (Vorlagen/Word/).
 
-Aufruf:  python3 Bauleitung/_werkzeuge/vorlagen_zu_word.py
+Aufruf:  python3 20_Bauleitung/_werkzeuge/vorlagen_zu_word.py
 Braucht: pandoc, python-docx
 """
 import pathlib

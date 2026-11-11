@@ -2,7 +2,7 @@
 """Erzeugt aus Checkliste/checkliste.json die Markdown-Checkliste und bettet
 die Daten (inkl. der verlinkten Fakten aus WISSEN.md) in die Abhak-Seite ein.
 
-Aufruf:  python3 Bauleitung/_werkzeuge/checkliste_bauen.py
+Aufruf:  python3 20_Bauleitung/_werkzeuge/checkliste_bauen.py
 """
 import json
 import pathlib

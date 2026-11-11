@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+# Blockiert einen Commit, wenn pruefen.sh einen FEHLER findet –
+# vor allem, wenn Dateien aus dem Sperrbereich 70–79 in git landen würden.
+#
+# Einschalten (einmal je Rechner bzw. je Cloud-Sitzung):
+#   git config core.hooksPath 09_System/git-hooks
+exec "$(git rev-parse --show-toplevel)/09_System/pruefen.sh" --hook

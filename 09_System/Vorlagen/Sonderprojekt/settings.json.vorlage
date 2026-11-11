@@ -1,0 +1,6 @@
+{
+  "claudeMdExcludes": [
+    "**/<NAME-DES-SECOND-BRAIN-ORDNERS>/CLAUDE.md",
+    "**/<NAME-DES-SECOND-BRAIN-ORDNERS>/CLAUDE.local.md"
+  ]
+}
