@@ -37,7 +37,7 @@ Phase 1 endet mit einem unterschriebenen Auftrag und einem festen Termin für de
 5. Zwei Startbeispiele festlegen, die am Installationstag gemeinsam laufen sollen – z. B. Rechnungs-PDFs sortieren und eine Rechnung schreiben.
 6. Ehrlich aufklären: Claude kann sich irren. Die Verantwortung für Meldungen, Zahlen und Unterschriften bleibt beim Betrieb.
 7. Datenschutz offen ansprechen: Dateien bleiben auf dem PC, aber was Claude liest, wird zur Verarbeitung an die Server von Anthropic geschickt. Im Team-Tarif werden die Chats standardmäßig nicht zum Training der KI genutzt. Außerdem bringt er einen Datenverarbeitungsvertrag (DPA) mit Anthropic mit – die Grundlage dafür, dass auch Personaldaten in 04_Personal mit Claude bearbeitet werden. Die Mitarbeiter werden darüber informiert.
-8. Kosten nennen: Das Team-Abo mit 2 Plätzen zahlt der Betrieb selbst – laut claude.com/pricing 25 US$ pro Platz und Monat, 20 US$ bei Jahreszahlung. Mein Preis für das Gesamtkonzept wird erst nach Abschluss fällig; das Vorgespräch kostet nichts extra.
+8. Kosten nennen: Das Team-Abo mit mindestens 2 Plätzen zahlt der Betrieb selbst: 40 € im Monat. Mein Preis für das Gesamtkonzept wird erst nach Abschluss fällig; das Vorgespräch kostet nichts extra.
 9. Grenzen nennen: Das Abo hat Nutzungsgrenzen (alle 5 Stunden und pro Woche). Wer aufhören will, kündigt das Abo; alle Ergebnisse bleiben als normale Dateien im Betriebsordner.
 
 **Regeln für die Vorführung mit Unterlagen des Hofes**
@@ -63,9 +63,11 @@ Den Fragebogen zum Verschicken mit Mail 2 gibt es als eigene Datei: [Fragebogen.
 | Information | Wozu | Bis wann | Woher |
 | --- | --- | --- | --- |
 | Geräte: PC oder Laptop, Windows 10 oder neuer bzw. macOS 13 oder neuer; teilen sich beide einen PC? Handys? | Prüfen, ob Desktop-App und Cowork laufen; Windows-Benutzer planen | T − 14 Tage | Fragebogen |
+| Microsoft 365 mit Excel und Word installiert? Google Chrome vorhanden? | Excel und Word gehören zur Grundausstattung; fehlt Office, besorgt der Betrieb es vorher | T − 14 Tage | Fragebogen |
 | Administrator-Passwort des PCs vorhanden? | Installation und Windows-Einstellungen | T − 14 Tage (nur Ja/Nein) | Fragebogen; das Passwort tippt der Betrieb am Tag T |
 | Internet im Büro (stabil, WLAN oder Kabel) | Claude arbeitet nur online | T − 14 Tage | Fragebogen |
 | Eigene Mail-Adresse für Betriebsleiter und Büro-Person | Im Team-Tarif braucht jede Person einen eigenen Zugang | T − 14 Tage | Fragebogen |
+| Wer soll später im Hof-Chat mitmachen? Name und Rolle (Betriebsleiter, Bürokraft, Angestellte) | Rollen und Rechte planen | T − 14 Tage | Fragebogen |
 | Mail-Anbieter und Kalender (Gmail, Outlook/Microsoft 365, GMX, T-Online …) | Entscheidet, welcher Konnektor passt | T − 14 Tage | Fragebogen |
 | Programmliste: Name, Hersteller, Browser oder installiert, Export nach Excel/CSV/PDF möglich? | Weg für jedes Programm vorab wählen | T − 14 Tage | Fragebogen |
 | Papierbelege: Scanner oder Multifunktionsgerät vorhanden? Scan-App auf dem Handy? | Festlegen, wie Papier in den Betriebsordner kommt | T − 14 Tage | Fragebogen |
@@ -80,7 +82,7 @@ Den Fragebogen zum Verschicken mit Mail 2 gibt es als eigene Datei: [Fragebogen.
 
 1. Fragebogen prüfen, Lücken telefonisch klären, **Mail 3** (Terminbestätigung mit Bereithalteliste) schicken.
 2. Beide Startbeispiele mit den Musterunterlagen in meinem eigenen Claude durchspielen. Das erste Erlebnis auf dem Hof muss klappen.
-3. Das Standard-Paket auf den USB-Stick: das Grundwerkzeug hof-helfer als ZIP, Musterordner, Text der Standard-Regeln, Betriebsprofil-Vorlage, Spickzettel und Wörterbuch als PDF.
+3. Das Standard-Paket auf den USB-Stick: die Skills hof-helfer und grill-me als ZIP, Musterordner, Text der Standard-Regeln, Betriebsprofil-Vorlage, Spickzettel und Wörterbuch als PDF.
 4. Installationsliste für den Betrieb anlegen (was, wann, welche Version).
 5. Am Vortag **Mail 4** als kurze Erinnerung.
 
@@ -92,14 +94,14 @@ Der Installationstag dauert rund 5,5 Stunden und liegt zwischen den Stallzeiten.
 | --- | --- | --- |
 | 0:00–0:15 | Begrüßung, Ziel des Tages, Ablauf | beide |
 | 0:15–0:45 | Desktop-App installieren, Team-Konto anlegen, Büro-Person einladen (Schritte 3–5) | beide, jeder tippt seine Passwörter selbst |
-| 0:45–2:00 | Sicherung, Ordner, Einstellungen und Standard-Paket für beide Zugänge (Schritte 1–2 und 6–13) | ich allein; beide müssen für Anmeldecodes erreichbar sein |
-| 2:00–2:30 | Regeln vom Betrieb festlegen und abzeichnen, Probeauftrag und Wechsel üben (Schritte 14–15) | beide |
+| 0:45–2:00 | Sicherung, Ordner, Einstellungen und Standard-Paket für beide Zugänge (Schritte 1–2 und 6–15) | ich allein; beide müssen für Anmeldecodes erreichbar sein |
+| 2:00–2:30 | Regeln vom Betrieb festlegen und abzeichnen, Probeauftrag und Wechsel üben (Schritte 16–17) | beide |
 | 2:30–2:45 | Pause | – |
 | 2:45–3:45 | Startbeispiel 1 und 2 durchspielen und als Skill speichern, die Büro-Person tippt | beide |
 | 3:45–4:45 | Erstes Programm gemeinsam einbinden | beide |
 | 4:45–4:55 | Pause | – |
 | 4:55–5:10 | Fehler-Routine einmal üben | beide |
-| 5:10–5:30 | Übergabe-Probe für beide, Spickzettel, nächste Termine, Installationsliste (Schritt 16) | beide |
+| 5:10–5:30 | Übergabe-Probe für beide, Spickzettel, nächste Termine, Installationsliste (Schritt 18) | beide |
 
 **Installation Schritt für Schritt**
 
@@ -110,17 +112,19 @@ Die Menünamen stammen aus den englischen Hilfeseiten. In der deutschen Oberflä
 3. Desktop-App installieren: [claude.ai/download](https://claude.ai/download) → „Windows“ → „Download“ → Datei öffnen → Claude über das Startmenü starten. Voraussetzung: Windows 10 oder neuer bzw. macOS 13 oder neuer.
 4. Team-Konto anlegen: Der Betriebsleiter meldet sich mit seiner Mail-Adresse an, schließt das Team-Abo mit 2 Plätzen ab und ist damit Inhaber. Die Kartendaten tippt er selbst.
 5. Die Büro-Person einladen. Sie nimmt die Einladung mit ihrer eigenen Mail-Adresse an. Beide Postfächer mit Zwei-Faktor-Anmeldung sichern, denn über das Postfach kommt man ins Claude-Konto.
-6. Als Inhaber in den Organisationseinstellungen „Dateien erstellen und bearbeiten“ einschalten (Organization settings → Plugins & skills → Policy) und das Teilen von Skills erlauben. Ohne den ersten Schalter laufen keine Skills.
+6. Als Inhaber in den Organisationseinstellungen „Dateien erstellen und bearbeiten“ einschalten (Organization settings → Plugins & skills → Policy) das Teilen von Skills erlauben und Claude in Chrome für die Organisation freigeben. Ohne den ersten Schalter laufen keine Skills.
 7. Datenschutz-Einstellungen gemeinsam durchgehen. Im Team-Tarif werden Chats standardmäßig nicht zum Training der KI genutzt. Entscheidungen in die Installationsliste.
 8. Für jede Person: in Cowork nur den Betriebsordner verbinden, nie die ganze Festplatte. Fragt Windows nach der „Plattform für virtuelle Computer“, diese einschalten und neu starten.
 9. Für jede Person: die Standard-Regeln als globale Anweisung unter Einstellungen → Cowork einfügen, die Regeln vom Betrieb als Ordner-Anweisung des Betriebsordners.
 10. Freigabe-Modus: „Auto“ bleibt eingestellt (Standard im Team-Tarif). Claude arbeitet durch, blockiert selbst, was es für unsicher hält, und fragt vor dem endgültigen Löschen von Dateien. Die Standard-Regeln gelten trotzdem.
-11. Skills: Anpassen → Skills (Customize → Skills). Die Anthropic-Skills für Word, Excel, PDF und den Skill-Creator einschalten. Das Grundwerkzeug `hof-helfer` hochladen („+“ → „Create skill“ → „Upload a skill“ → ZIP vom USB-Stick) und mit der Organisation teilen.
+11. Skills: Anpassen → Skills (Customize → Skills). Die Anthropic-Skills für Word, Excel, PDF und den Skill-Creator einschalten. Meine Skills `hof-helfer` und `grill-me` hochladen („+“ → „Create skill“ → „Upload a skill“ → ZIP vom USB-Stick) und mit der Organisation teilen.
 12. Für jede Person: Anpassen → Konnektoren → Discover → „Connect“ für das eigene Postfach und den Kalender.
-13. Scan-Weg einrichten und einmal testen: Papier → Scanner oder Handy-Scan → `00_Eingang`.
-14. Probeauftrag für jede Person: „Lies das Betriebsprofil und sag mir, welche Regeln für dich gelten.“ Stimmt die Antwort, ist die Grundinstallation fertig.
-15. Wechsel üben: Beide teilen sich einen Windows-Benutzer. Die eine Person meldet sich in der Claude-App ab, die andere an. Vor jeder Arbeit kurz prüfen, wer angemeldet ist.
-16. Installationsliste ausfüllen (was, wann, welche Version) und den ersten Eintrag ins Logbuch schreiben.
+13. Google Chrome installieren, falls er fehlt. Dann für jede Person: im Chrome Web Store die Erweiterung „Claude“ → „Add to Chrome“ → anmelden → Erweiterung anheften. Die Erweiterung startet im Modus „Automatically approve“; weil Claude damit in Webportalen arbeitet, auf Freigeben vor jeder Aktion umstellen.
+14. Claude in Excel: In Excel die Claude-Erweiterung hinzufügen und mit dem eigenen Zugang anmelden. Eine Claude-Erweiterung für Word habe ich nicht gefunden; Word-Dateien erstellt und bearbeitet Claude über den Word-Skill.
+15. Scan-Weg einrichten und einmal testen: Papier → Scanner oder Handy-Scan → `00_Eingang`.
+16. Probeauftrag für jede Person: „Lies das Betriebsprofil und sag mir, welche Regeln für dich gelten.“ Stimmt die Antwort, ist die Grundinstallation fertig.
+17. Wechsel üben: Beide teilen sich einen Windows-Benutzer. Die eine Person meldet sich in der Claude-App ab, die andere an. Vor jeder Arbeit kurz prüfen, wer angemeldet ist.
+18. Installationsliste ausfüllen (was, wann, welche Version) und den ersten Eintrag ins Logbuch schreiben.
 
 Die Handy-App richte ich erst beim Termin nach 4 Wochen ein, wenn der PC sicher läuft.
 
@@ -138,20 +142,75 @@ Jeder Hof bekommt dieselbe schlanke Grundlage – und nicht mehr. Fertige Skills
 | Betriebsprofil | Name, Anschrift, Betriebsnummer, Zweige, Programme, Ansprechpartner, Bankverbindung | Datei in `00_Claude` |
 | Logbuch und Fehlerliste | Excel-Tabellen: was Claude wann für wen gemacht hat; was schiefging und wie es behoben wurde | `00_Claude` |
 | Anthropic-Skills | Word, Excel, PDF, Skill-Creator | Anpassen → Skills |
+| Eigene Skills `hof-helfer` und `grill-me` | Meine zwei eigenen Skills auf jedem Hof (siehe unten) | Anpassen → Skills, hochgeladen und mit der Organisation geteilt |
+| Google Chrome mit Claude in Chrome | Browser mit der Claude-Erweiterung (im Team-Tarif enthalten), damit Claude Webportale vorausfüllen kann (Browser-Weg) | Chrome und Erweiterung am Tag T |
+| Excel und Word, Claude in Excel | Microsoft 365 mit Excel und Word auf dem PC, dazu Claude in Excel, damit man Claude direkt in der Tabelle fragen kann. Eine Claude-Erweiterung für Word habe ich nicht gefunden; Word-Dateien erstellt Claude über den Word-Skill | Office besorgt der Betrieb vorher; Erweiterung am Tag T |
 | Mail und Kalender | Für jede Person das eigene Postfach: Gmail mit Google Kalender oder Microsoft 365 (Outlook), wenn der Anbieter im Verzeichnis steht | Anpassen → Konnektoren, bei beiden Personen |
-| Grundwerkzeug `hof-helfer` | Mein einziger eigener Skill auf jedem Hof (siehe unten) | Anpassen → Skills, hochgeladen und mit der Organisation geteilt |
+| Hof-Chat mit Rollen | Matrix-Chat, in dem alle Personen eintragen und Grundfragen stellen | Baustein in Arbeit (siehe unten) |
 
-**Das Grundwerkzeug `hof-helfer`**
+**Meine zwei eigenen Skills**
 
-Dieser Skill ist kein Programm-Skill, sondern eine Anleitung, mit der sich der Betrieb selbst weiterhilft:
+Beide sind keine Programm-Skills, sondern Werkzeuge, mit denen sich der Betrieb selbst weiterhilft.
 
-- Er führt durch das Einbinden eines neuen Programms und schreibt den Steckbrief.
-- Er führt durch das Verbessern eines Skills, der Fehler macht.
-- Er sagt, wann der Betrieb mich anrufen sollte.
+- `hof-helfer` führt durch das Einbinden eines neuen Programms und schreibt den Steckbrief. Er führt durch das Verbessern eines Skills, der Fehler macht, und sagt, wann der Betrieb mich anrufen sollte.
+- `grill-me` ist meine deutsche Fassung des Grill-Me-Skills aus der Community. Bevor ein neuer Skill gebaut wird, befragt er den Betrieb hartnäckig, Punkt für Punkt: Was genau soll rein, was soll rauskommen, wo wird gespeichert, was ist verboten? Erst wenn alles geklärt ist, baut der Skill-Creator.
 
 **Was am Installationstag auf dem Hof entsteht**
 
 Zwei Skills aus den Startbeispielen und einer für das erste Programm – gebaut aus den echten Unterlagen des Hofes. Ideen liefert die Wunschliste aus dem Vorgespräch, z. B. Rechnungs-PDFs sortieren oder eine Rechnung schreiben.
+
+## Baustein in Arbeit: Hof-Chat mit Rollen
+
+Auf jedem Hof soll es einen gemeinsamen Hof-Chat über Matrix geben. Alle Personen tragen dort ein, was anfällt, und können Grundfragen stellen – auch wenn der Betriebsleiter nicht da ist. Der Baustein ist noch nicht fertig; die offenen Fragen stehen am Ende des Abschnitts.
+
+**Wer was darf**
+
+| Rolle | Trägt ein | Darf fragen | Bekommt keine Auskunft über |
+| --- | --- | --- | --- |
+| Betriebsleiter | alles | alles | – |
+| Bürokraft | Arbeitszeiten, Gespräche, Auffälligkeiten, Tiersichtungen | Hofwissen und Büro-Unterlagen | noch festlegen |
+| Angestellte | eigene Arbeitszeiten, Gespräche, Auffälligkeiten, Tiersichtungen | Hofwissen für alle, z. B.: Wo liegt der Schlüssel vom Schlepper? Welches Saatgut kommt auf welche Fläche? Wie viel Dünger auf welche Fläche? Wie viele Tiere sind wo? | Arbeitszeiten und Gespräche anderer, Löhne, Personalakten, Finanzen, Verträge |
+
+**Grundregel: Rechte über getrennte Wissensbereiche, nicht über Anweisungen**
+
+Claude bekommt in jedem Bereich nur die Unterlagen, die diese Rolle sehen darf. Eine Anweisung wie „Erzähl Angestellten nichts über Löhne“ reicht nicht, denn Anweisungen lassen sich durch geschickte Fragen umgehen. Was Claude in einem Bereich nicht lesen kann, kann es dort auch nicht verraten.
+
+- **Hofwissen für alle:** Schlüssel und Geräte, Flächen mit Saatgut und Düngung, Tiere und Weiden, Abläufe im Stall. Der Betriebsleiter pflegt es, z. B. als eine Tabelle pro Thema.
+- **Büro:** dazu Rechnungen, Behördenpost und Anträge.
+- **Leitung:** alles, auch Personal und Finanzen.
+
+**Räume im Hof-Chat**
+
+| Raum | Wer ist drin | Wofür |
+| --- | --- | --- |
+| Hof – alle | alle Personen und Claude | Fragen zum Hofwissen, Tiersichtungen, Auffälligkeiten |
+| Mein Eingang (je Person) | die Person und Claude | Arbeitszeiten und Gespräche; die Ergebnisse sieht nur die Leitung |
+| Leitung | Betriebsleiter, Bürokraft und Claude | Zusammenfassungen, Rückfragen, Freigaben |
+
+**Wann Claude die Einträge verarbeitet**
+
+Fragen im Raum „Hof – alle“ sollen sofort beantwortet werden. Die Einträge verarbeitet Claude zu festen Zeiten, je nach Betrieb:
+
+| Betrieb | Wann |
+| --- | --- |
+| Milchvieh | zweimal täglich: nach dem Morgenmelken vor der Mittagspause und nach dem Abendmelken |
+| Ackerbau | einmal täglich |
+
+Bis die Technik steht, startet die Bürokraft die Verarbeitung zu diesen Zeiten selbst. Geplante Aufgaben in Cowork laufen in der Cloud, ohne dass der PC an ist; dass sie an den Betriebsordner auf dem PC kommen, ist nicht bestätigt. Ergebnis jeder Runde: Arbeitszeiten in die Monatsliste je Person (`04_Personal`), Tiersichtungen zum Tier (`02_Tiere_HIT`), Auffälligkeiten als kurze Meldung an den Betriebsleiter, Gespräche als Notiz.
+
+**Warum Matrix**
+
+Matrix ist ein offenes Chat-System. Der Server kann in Deutschland oder der EU stehen oder auf dem Hof selbst laufen. Damit bleiben die Chats unter der Kontrolle des Betriebs – eine gute Grundlage für die DSGVO.
+
+**Noch zu klären**
+
+- [ ] Technische Anbindung: Ein Weg ist ein Matrix-Bot wie baibot (von etke.cc, quelloffen, aktiv gepflegt), der Claude-Modelle über die Claude-Schnittstelle (API) nutzt. Die API läuft getrennt vom Team-Abo und kostet nach Verbrauch. Offen: Kann man je Raum festlegen, welche Unterlagen der Bot sieht? Einen fertigen Matrix-Konnektor für Claude habe ich nicht gefunden.
+- [ ] Hosting: eigener Server, Anbieter in Deutschland oder in der EU? Standort und Preise der Anbieter habe ich noch nicht geprüft.
+- [ ] Sofort-Antworten auf Fragen und feste Verarbeitungszeiten technisch umsetzen.
+- [ ] Rechte der Bürokraft festlegen.
+- [ ] Wer pflegt das Hofwissen für alle, und wie oft?
+- [ ] Mitarbeiter informieren und die Rechtsgrundlage klären (DSGVO), besonders für Arbeitszeiten und Gespräche.
+- [ ] Handy-App für die Angestellten auswählen, z. B. Element.
 
 ## Die ersten Programme gemeinsam einbinden
 
@@ -178,7 +237,7 @@ Das erste Programm binden wir am Installationstag zusammen ein, das zweite nach 
 1. Programm-Steckbrief in `00_Claude/Steckbriefe` anlegen: Name, Hersteller, Zweck, wer Zugang hat, gewählter Weg, Export-Ordner und Dateiformat, was Claude darf und was nicht, zugehöriger Skill, Datum.
 2. Den Weg wählen (Entscheidungsweg im nächsten Abschnitt).
 3. Einen echten Fall einmal komplett mit Claude durchspielen – noch ohne Skill.
-4. Mit dem Skill-Creator daraus einen Skill bauen: „Mach aus dem, was wir gerade gemacht haben, einen Skill.“
+4. Mit grill-me klären, was genau der Skill tun soll, dann mit dem Skill-Creator daraus einen Skill bauen: „Mach aus dem, was wir gerade gemacht haben, einen Skill.“
 5. An drei echten Fällen testen, Fehler notieren, verbessern.
 6. Der Betriebsleiter gibt frei. Version und Datum kommen in den Steckbrief und ins Logbuch.
 
@@ -203,7 +262,7 @@ Nur bei Weg 2 fragt der Betrieb vorher mich: Ein eigener Konnektor gibt einem fr
 1. Fragt Name, Hersteller und Zweck des Programms ab.
 2. Stellt die Fragen aus der Zeichnung und nennt den passenden Weg.
 3. Legt den Steckbrief in `00_Claude/Steckbriefe` an.
-4. Spielt einen echten Fall mit dem Betriebsleiter durch und baut daraus mit dem Skill-Creator einen neuen Skill.
+4. Spielt einen echten Fall mit dem Betriebsleiter durch, klärt mit grill-me jeden offenen Punkt und baut daraus mit dem Skill-Creator einen neuen Skill.
 5. Erinnert an drei Testfälle, die Freigabe und den Logbuch-Eintrag.
 
 **Hier ruft der Betrieb mich an, statt allein weiterzumachen**
@@ -265,7 +324,7 @@ Bindet der Betrieb ein Programm selbst ein, muss er mir nichts melden. Nur wenn 
 | Was passiert | Was der Betrieb tut |
 | --- | --- |
 | Eine neue Person soll mit Claude arbeiten | Der Inhaber bucht einen Platz dazu und lädt sie ein. Sie macht die Übergabe-Probe mit der Büro-Person. |
-| Mehr als zwei Personen arbeiten mit | Einen gemeinsamen Matrix-Chat eröffnen: für Eingaben der verschiedenen Personen, Fragen zum Grundwissen des Betriebs und die Verteilung von Aufgaben. Wie Claude dort angebunden wird, klären wir gemeinsam. |
+| Mehr als zwei Personen arbeiten mit | Die neue Person in den Hof-Chat aufnehmen und ihr eine Rolle geben (Baustein Hof-Chat mit Rollen). Die Verteilung von Aufgaben läuft dann ebenfalls dort. |
 | Jemand verlässt den Hof | Der Inhaber entfernt den Zugang am selben Tag. |
 | Ein Handy mit der Claude-App ist weg | Das Passwort des Mail-Postfachs ändern, denn darüber kommt man ins Claude-Konto, und das Handy sperren lassen. |
 | Ein neuer PC kommt | Desktop-App installieren, anmelden, Betriebsordner aus der Sicherung zurückspielen und in Cowork verbinden, Standard-Regeln neu einfügen. Der Text liegt als Datei in `00_Claude`. |
@@ -450,7 +509,7 @@ Diese drei Listen kopiere ich für jeden Betrieb in seine Betriebsakte und hake 
 - [ ] Fragebogen zurück (T − 14)
 - [ ] Musterunterlagen da (T − 7)
 - [ ] Beide Startbeispiele in meinem Claude getestet
-- [ ] USB-Stick: hof-helfer als ZIP, Musterordner, Regeln, Betriebsprofil-Vorlage, Spickzettel, Wörterbuch
+- [ ] USB-Stick: hof-helfer und grill-me als ZIP, Musterordner, Regeln, Betriebsprofil-Vorlage, Spickzettel, Wörterbuch
 - [ ] Mail 3 (T − 7) und Mail 4 (T − 1) verschickt
 
 **Am Installationstag**
@@ -464,8 +523,8 @@ Diese drei Listen kopiere ich für jeden Betrieb in seine Betriebsakte und hake 
 - [ ] Datenschutz-Einstellungen besprochen und notiert
 - [ ] Cowork bei beiden nur mit dem Betriebsordner verbunden
 - [ ] Standard-Regeln und Regeln vom Betrieb bei beiden hinterlegt, Regeln abgezeichnet
-- [ ] Anthropic-Skills eingeschaltet, hof-helfer hochgeladen
-- [ ] Konnektoren für Mail und Kalender bei beiden verbunden
+- [ ] Anthropic-Skills eingeschaltet, hof-helfer und grill-me hochgeladen
+- [ ] Konnektoren für Mail und Kalender, Claude in Chrome und Claude in Excel bei beiden eingerichtet
 - [ ] Probeauftrag bei beiden richtig beantwortet, Wechsel in der App geübt
 - [ ] Startbeispiel 1 und 2 von Büro-Person und Betriebsleiter selbst durchgeführt und als Skill gespeichert
 - [ ] Erstes Programm eingebunden, Steckbrief angelegt
@@ -484,12 +543,13 @@ Diese drei Listen kopiere ich für jeden Betrieb in seine Betriebsakte und hake 
 
 ## Offene Punkte
 
-Zehn Fragen muss ich klären, bevor der Ablauf beim ersten Pilotbetrieb (Tim) läuft.
+Elf Fragen muss ich klären, bevor der Ablauf beim ersten Pilotbetrieb (Tim) läuft.
 
-- [ ] **Tarif:** Team mit 2 Plätzen ist gesetzt. Noch bestätigen, dass für Team die gewerblichen Bedingungen mit Datenschutz-Vertrag (DPA) gelten, und die Euro-Preise nachsehen.
+- [ ] **Tarif:** Team mit mindestens 2 Plätzen für 40 € im Monat ist gesetzt. Noch bestätigen, dass für Team die gewerblichen Bedingungen mit Datenschutz-Vertrag (DPA) gelten.
 - [ ] **Gesundheitsdaten von Mitarbeitern:** mit einer Fachperson für Datenschutz klären, was außer dem DPA nötig ist, z. B. ein Informationsblatt für die Mitarbeiter.
-- [ ] **Matrix-Chat:** prüfen, ob und wie Claude an einen gemeinsamen Matrix-Chat angebunden werden kann, bevor ich ihn einem Betrieb vorschlage.
-- [ ] **Grundwerkzeug schreiben:** den Skill `hof-helfer` bauen und in meinem eigenen Konto testen.
+- [ ] **Matrix-Chat:** den Baustein Hof-Chat mit Rollen ausarbeiten (siehe eigener Abschnitt), bevor er auf einen Hof kommt.
+- [ ] **Grundwerkzeug schreiben:** die Skills `hof-helfer` und `grill-me` bauen und in meinem eigenen Konto testen.
+- [ ] **Claude in Excel:** Installationsweg und Voraussetzungen (Excel-Version, Freigabe im Team-Tarif) in meinem eigenen Konto testen.
 - [ ] **Skill verbessern testen:** prüfen, wie ein verbesserter Skill die alte Fassung ersetzt – direkt geändert oder neu hochgeladen.
 - [ ] **Mail ohne Konnektor:** Ersatzweg für GMX, web.de oder T-Online festlegen, z. B. wichtige Mails als PDF in den Betriebsordner speichern.
 - [ ] **Mein Zugriff für Hilfe nach Bedarf:** Fernwartung ja oder nein? Wenn ja, in die Datenschutz-Vereinbarung aufnehmen.
@@ -505,9 +565,11 @@ Die Hilfeseiten wurden am 11.11.2026 gelesen. Interview-Fragen, Standard-Regeln,
 - [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude) – Skills einschalten, hochladen, Einstellungen im Team-Tarif
 - [Get started with custom connectors using remote MCP](https://support.claude.com/en/articles/11175166-get-started-with-custom-connectors-using-remote-mcp) – eigene Konnektoren, im Team-Tarif nur durch den Inhaber
 - [Browse skills, connectors and plugins in one directory](https://support.claude.com/en/articles/14328846-browse-skills-connectors-and-plugins-in-one-directory) – Verzeichnis unter Anpassen
-- [Getting started with Cowork](https://support.claude.com/en/articles/13345190-getting-started-with-cowork) – Ordnerzugriff, Anweisungen, Freigabe-Modi Manuell und Auto
+- [Getting started with Cowork](https://support.claude.com/en/articles/13345190-getting-started-with-cowork) – Ordnerzugriff, Anweisungen, Freigabe-Modi, geplante Aufgaben laufen in der Cloud
+- [Get started with Claude in Chrome](https://support.claude.com/en/articles/12012173-get-started-with-claude-in-chrome) – im Team-Tarif enthalten, Installation über den Chrome Web Store, Start im Modus „Automatically approve“
 - [Use plugins in Claude](https://support.claude.com/en/articles/13837440-use-plugins-in-claude) – Plugins installieren
 - [Local MCP servers and desktop extensions](https://support.claude.com/en/articles/10949351) – Desktop-Erweiterungen
-- [Claude pricing](https://claude.com/pricing) – Tarife, Preise, Team ab 2 Plätzen, Training im Team-Tarif standardmäßig aus
+- [Claude pricing](https://claude.com/pricing) – Tarife, Team ab 2 Plätzen, Training im Team-Tarif standardmäßig aus
 - [Consumer Terms](https://www.anthropic.com/legal/consumer-terms) – Pro-Konten dürfen nicht mit anderen geteilt werden
 - [Commercial Terms](https://www.anthropic.com/legal/commercial-terms) – Datenverarbeitungsvertrag (DPA) als Teil der gewerblichen Bedingungen
+- [baibot](https://github.com/etkecc/baibot) – quelloffener Matrix-Bot, der u. a. Claude-Modelle nutzen kann (Lizenz AGPL-3.0)

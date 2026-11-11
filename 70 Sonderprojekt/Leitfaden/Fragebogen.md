@@ -11,7 +11,7 @@ Bitte füllt die Abschnitte 1 bis 5 bis [T − 14] aus und schickt den Bogen zur
 | Name des Betriebs |  |
 | Betriebsleiter: Name, Mail-Adresse, Handynummer |  |
 | Büro-Person: Name, eigene Mail-Adresse, Handynummer |  |
-| Soll noch jemand mit Claude arbeiten? Wer? |  |
+| Wer soll später im Hof-Chat mitmachen? Name und Rolle (Betriebsleiter, Bürokraft, Angestellte) |  |
 | Betriebszweige, Tierzahl, Fläche |  |
 | Wie viele Stunden pro Woche fallen Büroarbeiten an? |  |
 | Stallzeiten: Wann passt ein Termin von 5,5 Stunden? |  |
@@ -22,6 +22,8 @@ Bitte füllt die Abschnitte 1 bis 5 bis [T − 14] aus und schickt den Bogen zur
 | --- | --- |
 | Welcher PC oder Laptop steht im Büro? (Hersteller, ungefähres Alter) |  |
 | Windows-Version (Start → Einstellungen → System → Info) oder macOS-Version |  |
+| Sind Excel und Word installiert? Habt ihr ein Microsoft-365-Abo? |  |
+| Ist Google Chrome installiert? |  |
 | Teilen sich Betriebsleiter und Büro-Person diesen PC? (ja/nein) |  |
 | Ist das Administrator-Passwort des PCs bekannt? (nur ja/nein) |  |
 | Internet im Büro: WLAN oder Kabel? Läuft es stabil? |  |
