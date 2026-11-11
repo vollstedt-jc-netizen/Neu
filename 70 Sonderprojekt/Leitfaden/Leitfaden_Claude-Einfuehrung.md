@@ -30,7 +30,7 @@ Phase 1 endet mit einem unterschriebenen Auftrag und einem festen Termin für de
 
 **Vorgespräch** – feste Reihenfolge, damit jedes Gespräch gleich abläuft:
 
-1. Betrieb aufnehmen: Betriebszweige, Tierzahl, Fläche, Mitarbeiter, wer heute das Büro macht und wie viele Stunden pro Woche.
+1. Betrieb aufnehmen: Betriebszweige, Tierzahl, Fläche, Mitarbeiter, wer heute das Büro macht und wie viele Stunden pro Woche. Dazu ankreuzen, welche Dokumentationspflichten den Hof betreffen (Baustein Dokumentationspflichten).
 2. Programme aufnehmen: Welche laufen schon? (HIT, Ackerschlagkartei, Herdenmanagement, Buchhaltung, Mail-Programm). Für jedes: im Browser oder installiert, und kann es nach Excel, CSV oder PDF exportieren?
 3. Vorführung, 5 Minuten: Claude macht aus den bereitgelegten Rechnungen eine Übersicht (Regeln dazu unten).
 4. Wunschliste schreiben: Was nervt im Büro am meisten? Was wird oft vergessen? Zuerst kommt, was schnell klappt und oft gebraucht wird.
@@ -153,6 +153,7 @@ Jeder Hof bekommt dieselbe schlanke Grundlage – und nicht mehr. Fertige Skills
 | Hof-Chat mit Rollen | Matrix-Chat, in dem alle Personen eintragen und Grundfragen stellen | Baustein in Arbeit (siehe unten) |
 | Hof-Server | Ein normaler PC, der rund um die Uhr läuft: Betriebsordner, Matrix-Server für den Hof-Chat, Claude mit dem Platz des Betriebsleiters, alle Programme des Hofes | Betrieb kauft, richtet ein und wartet ihn selbst, nach meiner Anleitung |
 | Fachfragen und Nachweise | Antworten mit Quelle und Datum, Nachweise für Entscheidungen im Moment, Behandlungsliste nach Anweisung des Tierarztes | Baustein (siehe unten) |
+| Dokumentationspflichten | Pflichten-Verzeichnis je Hof; aus Hof-Chat-Einträgen werden die vorgeschriebenen Aufzeichnungen, fristgerecht | Baustein (siehe unten) |
 | Fundament | Stammdaten und Hof-Glossar, Datensicherung mit Test, Lebenszeichen und Notfallblatt, Skill-Verzeichnis, Diktieren und Fotos, gemeinsamer Hof-Kalender | Abschnitt Fundament (siehe unten) |
 
 **Meine zwei eigenen Skills**
@@ -263,6 +264,7 @@ Auf der Seite steht:
 7. Offene Freigaben und alles, was in Portalen vorausgefüllt, aber noch nicht abgesendet ist.
 8. Neue oder geänderte Skills mit Version.
 9. Lücken: ausgefallene Verarbeitungsläufe, fehlende Lebenszeichen oder Sicherungen, z. B. nach einem Stromausfall.
+10. Pflicht-Aufzeichnungen: was fehlt oder überfällig ist, z. B. eine Düngung ohne Aufzeichnung nach 2 Tagen.
 
 ## Baustein in Arbeit: Hof-Chat mit Rollen
 
@@ -404,6 +406,35 @@ Claude erinnert nur an Fristen, die im Hofwissen als „betrifft uns“ markiert
 - [ ] Wie Claude die Daten des Deutschen Wetterdienstes abruft und als Nachweis speichert.
 - [ ] Ob die Behandlungsliste das vorgeschriebene Bestandsbuch ersetzen kann oder zusätzlich geführt wird.
 - [ ] Ob ein solcher Nachweis bei einer Kontrolle anerkannt wird – mit der Landwirtschaftskammer klären.
+
+## Baustein: Dokumentationspflichten
+
+Jeder Hof hat Aufzeichnungspflichten mit Fristen und Bußgeldern. Claude macht aus den Einträgen im Hof-Chat gleich die vorgeschriebene Aufzeichnung, erinnert an fällige Termine und meldet im Wochenbericht, was fehlt oder überfällig ist.
+
+Die Angaben unten stammen aus Merkblättern von Landesämtern, Kammern und Fachverbänden (siehe Quellen). Die Gesetzestexte selbst konnte ich noch nicht prüfen. Vor dem ersten Hof gehen wir die Liste mit Landwirtschaftskammer und Steuerberater durch.
+
+**Pflichten, die fast jeden Hof betreffen – Acker wie Vieh**
+
+| Pflicht | Gilt für | Was hinein muss | Frist und Aufbewahrung | Wie Claude hilft |
+| --- | --- | --- | --- | --- |
+| Gefährdungsbeurteilung (Arbeitsschutz, SVLFG) | jeden Hof mit Beschäftigten | Gefährdungen und Schutzmaßnahmen, nachvollziehbar für Prüfer | aktualisieren nach neuer Maschine, Umbau oder Unfall | Entwurf nach der Handlungshilfe der SVLFG; erinnert, wenn im Hof-Chat eine neue Maschine oder ein Unfall auftaucht |
+| Unterweisungen | jeden Hof mit Beschäftigten | Thema, Datum, Teilnehmer mit Unterschrift | mindestens jährlich, Auszubildende häufiger (laut Berufsgenossenschaft halbjährlich) | bereitet Unterweisung und Unterschriftenliste vor, setzt den Termin in den Hof-Kalender |
+| Erste Hilfe (Verbandbuch) und Unfallanzeige | jeden Hof | Zeitpunkt, Hergang, Maßnahmen, Ersthelfer, Zeugen; bei mehr als 3 Tagen Arbeitsunfähigkeit Unfallanzeige an die SVLFG | Unfallanzeige innerhalb von 3 Tagen; Aufbewahrung des Verbandbuchs prüfen | Eintrag über „Mein Eingang“ im Hof-Chat, abgelegt in `04_Personal/Verbandbuch` (nur Leitung); Entwurf der Unfallanzeige |
+| Arbeitszeiten | jeden Hof mit Beschäftigten | Beginn, Ende und Dauer je Tag und Person | zeitnah; Aufbewahrung mindestens 2 Jahre prüfen | überträgt die Einträge aus dem Hof-Chat in die Monatsliste je Person |
+| Düngung | jeden Hof, der düngt – Acker und Grünland | Düngebedarfsermittlung vor der Düngung; jede Maßnahme mit Teilgaben und Weidetagen; Jahressummen | Maßnahme spätestens 2 Tage danach; Jahressummen bis 31. März; Aufbewahrung 7 Jahre | aus „Schlag 12, 20 m³ Gülle“ im Hof-Chat wird am selben Tag die Aufzeichnung; Jahressummen vorbereiten |
+| Pflanzenschutz | jeden Hof, der Pflanzenschutzmittel anwendet | Anwender, Mittel, Datum, Menge, Fläche, Kultur; seit 2026 mehr Angaben wie den Ort, elektronisch voraussichtlich ab 2027 | bis Jahresende plus 3 Jahre aufbewahren | Aufzeichnung aus dem Hof-Chat oder dem Spritzen-Export; Mittel gegen die Pflanzenschutzmittel-Datenbank prüfen |
+| Futtermittel aus eigener Erzeugung | jeden Hof, der Futter erzeugt oder verfüttert | Registrierung als Futtermittelunternehmer; Aufzeichnungen zu Pflanzenschutz, Düngung, Saatgut und Hygiene bei Lagerung und Transport | Registrierung prüfen | baut auf Düngung und Pflanzenschutz auf; legt Saatgut-Belege ab |
+| Buchführung und Belege | jeden Hof | Rechnungen und Belege; E-Rechnungen im Original-Format (XRechnung oder ZUGFeRD), ein Ausdruck reicht nicht | Buchungsbelege 8 Jahre, andere Unterlagen länger – mit dem Steuerberater klären | sortiert Rechnungen, legt E-Rechnungen im Original ab, löscht nichts |
+
+**Nur für Tierhalter** (je Hof prüfen): HIT-Meldungen und Bestandsregister, Tierarzneimittel (Behandlungsliste und Bestandsbuch), Tierseuchenkasse, betriebliche Eigenkontrolle im Tierschutz.
+
+**Je nach Hof** (prüfen): Prüffristen für Pflanzenschutzspritze, Elektrik, Feuerlöscher, Güllelager und Dieseltank; Nachweise für Sammelantrag und Konditionalität; Saatgut und Nachbau; Datenschutz mit Beschäftigten.
+
+**Pflichten-Verzeichnis je Hof**
+
+- Im Vorgespräch kreuzen wir an, welche Pflichten den Hof betreffen.
+- Claude führt sie in `00_Claude/Pflichten-Verzeichnis.xlsx` mit Frist, Aufbewahrung, Ablageort und verantwortlicher Person und trägt wiederkehrende Termine in den Hof-Kalender ein.
+- Der Wochenbericht nennt jede Woche, welche Pflicht-Aufzeichnungen fehlen oder überfällig sind, z. B. eine Düngung, die vor mehr als 2 Tagen gemeldet, aber noch nicht aufgezeichnet wurde.
 
 ## Die ersten Programme gemeinsam einbinden
 
@@ -737,12 +768,13 @@ Diese drei Listen kopiere ich für jeden Betrieb in seine Betriebsakte und hake 
 
 ## Offene Punkte
 
-Zwölf Fragen muss ich klären, bevor der Ablauf beim ersten Pilotbetrieb (Tim) läuft.
+Dreizehn Fragen muss ich klären, bevor der Ablauf beim ersten Pilotbetrieb (Tim) läuft.
 
 - [ ] **Tarif:** Team mit mindestens 2 Plätzen für 40 € im Monat ist gesetzt. Noch bestätigen, dass für Team die gewerblichen Bedingungen mit Datenschutz-Vertrag (DPA) gelten.
 - [ ] **Gesundheitsdaten von Mitarbeitern:** mit einer Fachperson für Datenschutz klären, was außer dem DPA nötig ist, z. B. ein Informationsblatt für die Mitarbeiter.
 - [ ] **Aufbewahrung:** mit dem Steuerberater klären, wie lange Logbuch und Wochenberichte aufbewahrt werden müssen oder dürfen, auch wegen der Arbeitszeiten.
 - [ ] **Fachfragen:** den Baustein Fachfragen und Nachweise ausarbeiten (siehe eigener Abschnitt), vor allem Wegweiser und Nachweise.
+- [ ] **Dokumentationspflichten:** die Übersicht mit Landwirtschaftskammer und Steuerberater prüfen, die Vorgaben der SVLFG zu Unterweisung und Verbandbuch nachlesen.
 - [ ] **Matrix-Chat:** den Baustein Hof-Chat mit Rollen und Hof-Server ausarbeiten (siehe eigener Abschnitt), bevor er auf einen Hof kommt.
 - [ ] **Grundwerkzeug schreiben:** die Skills `hof-helfer` und `grill-me` bauen und in meinem eigenen Konto testen.
 - [ ] **Claude in Excel:** Installationsweg und Voraussetzungen (Excel-Version, Freigabe im Team-Tarif) in meinem eigenen Konto testen.
@@ -768,3 +800,11 @@ Die Hilfeseiten wurden am 11.11.2026 gelesen. Interview-Fragen, Standard-Regeln,
 - [Consumer Terms](https://www.anthropic.com/legal/consumer-terms) – Pro-Konten dürfen nicht mit anderen geteilt werden
 - [Commercial Terms](https://www.anthropic.com/legal/commercial-terms) – Datenverarbeitungsvertrag (DPA) als Teil der gewerblichen Bedingungen
 - [baibot](https://github.com/etkecc/baibot) – quelloffener Matrix-Bot, der u. a. Claude-Modelle nutzen kann (Lizenz AGPL-3.0)
+- [SVLFG: Handlungshilfe Gefährdungsbeurteilung](https://cdn.svlfg.de/fiona8-blobs/public/svlfgonpremiseproduction/3b891e16e0bffba2/f6d898df8491/gbu-gesamt-.pdf) – sieben Schritte, Dokumentation als letzter Schritt
+- [top agrar: Gefährdungsbeurteilung erstellen](https://www.topagrar.com/betriebsleitung/news/gefahrdungsbeurteilung-erstellen-so-machen-sie-es-richtig-20017932.html) – Dokumentation für Prüfer, Aktualisierung nach neuer Maschine oder Unfall
+- [BGN: Fachkompetenz Arbeitsschutz](https://vorschriften.bgn-branchenwissen.de/daten/dguv/211_042/4.htm) – Unterweisung mindestens jährlich, dokumentiert
+- [LfULG Sachsen: Aufzeichnungspflicht Pflanzenschutz (2026)](https://lfulg.sachsen.de/download/Nachlese_Z_2026Aufzeichnungspflicht.pdf) – Inhalte, 3 Jahre Aufbewahrung, neue EU-Vorgaben ab 2026, elektronisch ab 2027
+- [LELF Brandenburg: Aufzeichnungspflichten nach Düngeverordnung](https://lelf.brandenburg.de/sixcms/media.php/9/Hinweise-Aufzeichnungspflichten-entsprechend-Duengeverordnung.pdf) – 2 Tage nach jeder Düngung, Jahressummen bis 31. März
+- [Rhein-Erft-Kreis: Registrierungspflicht Futtermittel](https://www.rhein-erft-kreis.de/verbraucherschutz/Merkblatt-Registrierungs-oder-Zulassungspflicht.pdf) – Primärproduktion, Aufzeichnungen zu Pflanzenschutz, Düngung, Saatgut
+- [Haufe: Viertes Bürokratieentlastungsgesetz](https://www.haufe.de/steuern/gesetzgebung-politik/viertes-buerokratieentlastungsgesetz_168_613390.html) – Buchungsbelege 8 statt 10 Jahre
+- [IHK Ulm: Arbeitszeiterfassung](https://www.ihk.de/ulm/hauptnavigation/mitgliedsunternehmen/beraten-informieren/recht-steuern/auskuenfte-zum-arbeits-und-sozialrecht/arbeitsschutz-arbeitszeitrecht/arbeitszeiterfassung-6711096) – allgemeine Pflicht zur Arbeitszeiterfassung
