@@ -8,7 +8,7 @@ Alles, was zum Sonderprojekt oder zu einem der betreuten Betriebe entsteht, komm
 
 | Ordner | Inhalt |
 | --- | --- |
-| `Leitfaden/` | Der Leitfaden als Markdown-Abzug, der Fragebogen, der Einrichtungs-Prompt und die beiden Zeichnungen |
+| `Leitfaden/` | Der Leitfaden als Markdown-Abzug, der Fragebogen, die Etappen-Prompts und die beiden Zeichnungen |
 | `Betriebe/` | Eine Betriebsakte je betreutem Betrieb (siehe `Betriebe/README.md`) |
 | `Archiv/` | Überholte Fassungen, z. B. der erste Leitfaden vom 24.10.2026 |
 
