@@ -37,7 +37,7 @@ Phase 1 endet mit einem unterschriebenen Auftrag und einem festen Termin für de
 5. Zwei Startbeispiele festlegen, die am Installationstag gemeinsam laufen sollen – z. B. Rechnungs-PDFs sortieren und eine Rechnung schreiben.
 6. Ehrlich aufklären: Claude kann sich irren. Die Verantwortung für Meldungen, Zahlen und Unterschriften bleibt beim Betrieb.
 7. Datenschutz offen ansprechen: Dateien bleiben auf dem PC, aber was Claude liest, wird zur Verarbeitung an die Server von Anthropic geschickt. Im Team-Tarif werden die Chats standardmäßig nicht zum Training der KI genutzt. Außerdem bringt er einen Datenverarbeitungsvertrag (DPA) mit Anthropic mit – die Grundlage dafür, dass auch Personaldaten in 04_Personal mit Claude bearbeitet werden. Die Mitarbeiter werden darüber informiert.
-8. Kosten nennen: Das Team-Abo mit mindestens 2 Plätzen zahlt der Betrieb selbst: 40 € im Monat. Dazu kommt einmalig ein normaler PC als Hof-Server, der rund um die Uhr läuft, mit USV. Mein Preis für das Gesamtkonzept wird erst nach Abschluss fällig; das Vorgespräch kostet nichts extra.
+8. Kosten nennen: Das Team-Abo mit mindestens 2 Plätzen zahlt der Betrieb selbst: 40 € im Monat. Dazu kommt einmalig ein normaler PC als Hof-Server, der rund um die Uhr läuft, mit USV. Einrichten und warten muss ihn der Betrieb selbst. Mein Preis für das Gesamtkonzept wird erst nach Abschluss fällig; das Vorgespräch kostet nichts extra.
 9. Grenzen nennen: Das Abo hat Nutzungsgrenzen (alle 5 Stunden und pro Woche). Wer aufhören will, kündigt das Abo; alle Ergebnisse bleiben als normale Dateien im Betriebsordner.
 
 **Regeln für die Vorführung mit Unterlagen des Hofes**
@@ -63,7 +63,7 @@ Den Fragebogen zum Verschicken mit Mail 2 gibt es als eigene Datei: [Fragebogen.
 | Information | Wozu | Bis wann | Woher |
 | --- | --- | --- | --- |
 | Geräte: PC oder Laptop, Windows 10 oder neuer bzw. macOS 13 oder neuer; teilen sich beide einen PC? Handys? | Prüfen, ob Desktop-App und Cowork laufen; Windows-Benutzer planen | T − 14 Tage | Fragebogen |
-| Hof-Server: ein normaler PC, der rund um die Uhr laufen darf, mit USV; Zugang zum Router für Freigaben | Betriebsordner, Hof-Chat und Claude laufen darauf | T − 7 Tage | Betrieb kauft ihn; ich prüfe vorher die Ausstattung |
+| Hof-Server: ein normaler PC, der rund um die Uhr laufen darf, mit USV; Zugang zum Router für Freigaben | Betriebsordner, Hof-Chat und Claude laufen darauf | T − 7 Tage | Betrieb kauft ihn und richtet ihn nach meiner Anleitung selbst ein, inklusive Netzwerkordner für den Büro-PC |
 | Microsoft 365 mit Excel und Word installiert? Google Chrome vorhanden? | Excel und Word gehören zur Grundausstattung; fehlt Office, besorgt der Betrieb es vorher | T − 14 Tage | Fragebogen |
 | Administrator-Passwort des PCs vorhanden? | Installation und Windows-Einstellungen | T − 14 Tage (nur Ja/Nein) | Fragebogen; das Passwort tippt der Betrieb am Tag T |
 | Internet im Büro (stabil, WLAN oder Kabel) | Claude arbeitet nur online | T − 14 Tage | Fragebogen |
@@ -109,7 +109,7 @@ Der Installationstag dauert rund 5,5 Stunden und liegt zwischen den Stallzeiten.
 Die Menünamen stammen aus den englischen Hilfeseiten. In der deutschen Oberfläche können sie anders heißen.
 
 1. Den bestehenden Betriebsordner sichern (externe Festplatte oder Netzlaufwerk), bevor Claude zum ersten Mal darauf zugreift.
-2. Den Musterordner vom USB-Stick auf dem Hof-Server anlegen und für den Büro-PC als Netzwerkordner freigeben. Neu sind `00_Eingang` (alles Neue landet hier, Claude sortiert es ein), `00_Claude` (Betriebsprofil, Logbuch, Fehlerliste, Programm-Steckbriefe) und `07_Exporte` (ein Unterordner je Programm).
+2. Den Musterordner vom USB-Stick auf dem Hof-Server anlegen. Den Netzwerkordner für den Büro-PC hat der Betrieb vorher selbst eingerichtet. Neu sind `00_Eingang` (alles Neue landet hier, Claude sortiert es ein), `00_Claude` (Betriebsprofil, Logbuch, Fehlerliste, Programm-Steckbriefe) und `07_Exporte` (ein Unterordner je Programm).
 3. Desktop-App installieren: [claude.ai/download](https://claude.ai/download) → „Windows“ → „Download“ → Datei öffnen → Claude über das Startmenü starten. Voraussetzung: Windows 10 oder neuer bzw. macOS 13 oder neuer.
 4. Team-Konto anlegen: Der Betriebsleiter meldet sich mit seiner Mail-Adresse an, schließt das Team-Abo mit 2 Plätzen ab und ist damit Inhaber. Die Kartendaten tippt er selbst.
 5. Die Büro-Person einladen. Sie nimmt die Einladung mit ihrer eigenen Mail-Adresse an. Beide Postfächer mit Zwei-Faktor-Anmeldung sichern, denn über das Postfach kommt man ins Claude-Konto.
@@ -148,7 +148,7 @@ Jeder Hof bekommt dieselbe schlanke Grundlage – und nicht mehr. Fertige Skills
 | Excel und Word, Claude in Excel | Microsoft 365 mit Excel und Word auf dem PC, dazu Claude in Excel, damit man Claude direkt in der Tabelle fragen kann. Eine Claude-Erweiterung für Word habe ich nicht gefunden; Word-Dateien erstellt Claude über den Word-Skill | Office besorgt der Betrieb vorher; Erweiterung am Tag T |
 | Mail und Kalender | Für jede Person das eigene Postfach: Gmail mit Google Kalender oder Microsoft 365 (Outlook), wenn der Anbieter im Verzeichnis steht | Anpassen → Konnektoren, bei beiden Personen |
 | Hof-Chat mit Rollen | Matrix-Chat, in dem alle Personen eintragen und Grundfragen stellen | Baustein in Arbeit (siehe unten) |
-| Hof-Server | Ein normaler PC, der rund um die Uhr läuft: Betriebsordner, Matrix-Server für den Hof-Chat, Claude mit dem Platz des Betriebsleiters, alle Programme des Hofes | Betrieb kauft ihn; Einrichtung siehe Baustein Hof-Chat |
+| Hof-Server | Ein normaler PC, der rund um die Uhr läuft: Betriebsordner, Matrix-Server für den Hof-Chat, Claude mit dem Platz des Betriebsleiters, alle Programme des Hofes | Betrieb kauft, richtet ein und wartet ihn selbst, nach meiner Anleitung |
 
 **Meine zwei eigenen Skills**
 
@@ -222,6 +222,10 @@ Damit Fragen sofort beantwortet und Einträge pünktlich verarbeitet werden, kau
 - Eine Bildschirmsperre, denn am Server ist Claude mit dem Zugang des Betriebsleiters angemeldet.
 - Für den Matrix-Server: eine eigene Internet-Adresse für den Hof (z. B. chat.hofname.de), eine Freigabe am Router und ein Sicherheitszertifikat, damit die Handys den Chat auch von unterwegs erreichen. Damit ist der Betrieb selbst für die Sicherheit verantwortlich; die Matrix-Software braucht regelmäßig Updates.
 
+**Wer den Hof-Server betreut**
+
+Einrichtung und Wartung macht der Betrieb komplett selbst: Windows, Netzwerkordner, Datensicherung, Matrix-Server, Zertifikat und alle Updates. Ich liefere dafür eine Anleitung, eine Fernwartung durch mich gibt es nicht. Traut sich der Betrieb das nicht zu, holt er sich einen IT-Dienstleister vor Ort – das kläre ich schon im Vorgespräch.
+
 **Was der Platz des Betriebsleiters bedeutet**
 
 - Es kostet nichts extra, aber der Server teilt sich die Nutzungsgrenzen (alle 5 Stunden und pro Woche) mit dem Betriebsleiter. Bei vielen Fragen und Einträgen kann es eng werden.
@@ -235,7 +239,7 @@ Damit Fragen sofort beantwortet und Einträge pünktlich verarbeitet werden, kau
 - [ ] Matrix auf dem Hof-Server: Software auswählen (z. B. Synapse), Internet-Adresse, Router-Freigabe, Zertifikat und einen Plan für Updates festlegen.
 - [ ] Dauerbetrieb mit dem Platz des Betriebsleiters: prüfen, ob die Nutzungsgrenzen reichen und ob die Team-Bedingungen das erlauben.
 - [ ] Prüfen, ob Cowork auf dem Büro-PC den Betriebsordner auf dem Hof-Server als Netzwerkordner verbinden kann.
-- [ ] Einrichtung des Hof-Servers: vor dem Installationstag oder vor Ort, und wer ihn danach wartet.
+- [ ] Anleitung für den Betrieb schreiben: Hof-Server und Matrix selbst einrichten und warten (Netzwerkordner, Sicherung, Updates, Zertifikat).
 - [ ] Sofort-Antworten auf Fragen und feste Verarbeitungszeiten technisch umsetzen.
 - [ ] Rechte der Bürokraft festlegen.
 - [ ] Wer pflegt das Hofwissen für alle, und wie oft?
@@ -434,7 +438,7 @@ danke für den Fragebogen, ich habe alles, was ich brauche. Bitte halte am [Datu
 - das Administrator-Passwort des PCs,
 - den Zugang zu euren beiden Mail-Postfächern und eure Handys für Bestätigungscodes,
 - die Kreditkarte des Betriebs für das Claude-Team-Abo,
-- den neuen PC für den Hof-Server, aufgestellt und per Kabel am Router,
+- den Hof-Server, nach meiner Anleitung eingerichtet und per Kabel am Router,
 - Zeit von [Uhrzeit] bis [Uhrzeit], für dich und [Name Büro-Person].
 
 Bitte spielt bis zum Vortag alle Windows-Updates ein, die dauern oft lange.
@@ -574,7 +578,7 @@ Diese drei Listen kopiere ich für jeden Betrieb in seine Betriebsakte und hake 
 
 ## Offene Punkte
 
-Elf Fragen muss ich klären, bevor der Ablauf beim ersten Pilotbetrieb (Tim) läuft.
+Zehn Fragen muss ich klären, bevor der Ablauf beim ersten Pilotbetrieb (Tim) läuft.
 
 - [ ] **Tarif:** Team mit mindestens 2 Plätzen für 40 € im Monat ist gesetzt. Noch bestätigen, dass für Team die gewerblichen Bedingungen mit Datenschutz-Vertrag (DPA) gelten.
 - [ ] **Gesundheitsdaten von Mitarbeitern:** mit einer Fachperson für Datenschutz klären, was außer dem DPA nötig ist, z. B. ein Informationsblatt für die Mitarbeiter.
@@ -583,7 +587,6 @@ Elf Fragen muss ich klären, bevor der Ablauf beim ersten Pilotbetrieb (Tim) lä
 - [ ] **Claude in Excel:** Installationsweg und Voraussetzungen (Excel-Version, Freigabe im Team-Tarif) in meinem eigenen Konto testen.
 - [ ] **Skill verbessern testen:** prüfen, wie ein verbesserter Skill die alte Fassung ersetzt – direkt geändert oder neu hochgeladen.
 - [ ] **Mail ohne Konnektor:** Ersatzweg für GMX, web.de oder T-Online festlegen, z. B. wichtige Mails als PDF in den Betriebsordner speichern.
-- [ ] **Mein Zugriff für Hilfe nach Bedarf:** Fernwartung ja oder nein? Wenn ja, in die Datenschutz-Vereinbarung aufnehmen.
 - [ ] **Verträge prüfen lassen:** Auftrag und Datenschutz-Vereinbarung von Steuerberater oder Anwalt durchsehen lassen.
 - [ ] **Preise:** Preis für das Gesamtkonzept und für Hilfe nach Bedarf nach der Zeitmessung bei Tim festlegen. Mit dem Steuerberater klären, wie die Einnahmen aus dem Hobby zu behandeln sind.
 - [ ] **Menüs prüfen:** Die Claude-Menüs ändern sich laufend. Vor jedem Installationstag die Schritte gegen die Hilfeseiten unter Quellen prüfen.

@@ -26,7 +26,7 @@ Bitte füllt die Abschnitte 1 bis 5 bis [T − 14] aus und schickt den Bogen zur
 | Ist Google Chrome installiert? |  |
 | Hof-Server: Gibt es schon einen PC, der rund um die Uhr laufen kann, oder kauft ihr einen? |  |
 | Welcher Internet-Anbieter und welcher Router? Kommt ihr an die Router-Einstellungen? |  |
-| Habt ihr eine eigene Internet-Adresse (Domain), z. B. für eine Homepage? |  |
+| Habt ihr eine eigene Internet-Adresse (Domain), z. B. für eine Homepage? Wer kümmert sich bei euch um PC und Router – jemand vom Hof oder ein IT-Dienstleister? |  |
 | Teilen sich Betriebsleiter und Büro-Person den Büro-PC? (ja/nein) |  |
 | Ist das Administrator-Passwort des PCs bekannt? (nur ja/nein) |  |
 | Internet im Büro: WLAN oder Kabel? Läuft es stabil? |  |
