@@ -91,6 +91,8 @@ Den Fragebogen zum Verschicken mit Mail 2 gibt es als eigene Datei: [Fragebogen.
 
 Der Installationstag dauert rund 5,5 Stunden und liegt zwischen den Stallzeiten. Am Ende läuft Claude für beide Personen mit dem Standard-Paket, zwei Startbeispielen und dem ersten eingebundenen Programm.
 
+Sobald Claude installiert und mit dem Betriebsordner verbunden ist, arbeitet der Einrichtungs-Prompt den Rest mit uns Schritt für Schritt ab: [Einrichtungs-Prompt.md](Einrichtungs-Prompt.md)
+
 | Zeit | Was | Wer ist dabei? |
 | --- | --- | --- |
 | 0:00–0:15 | Begrüßung, Ziel des Tages, Ablauf | beide |
