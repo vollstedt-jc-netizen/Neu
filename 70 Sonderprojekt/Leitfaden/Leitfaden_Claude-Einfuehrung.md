@@ -73,7 +73,7 @@ Den Fragebogen zum Verschicken mit Mail 2 gibt es als eigene Datei: [Fragebogen.
 | Programmliste: Name, Hersteller, Browser oder installiert, Export nach Excel/CSV/PDF möglich? | Weg für jedes Programm vorab wählen | T − 14 Tage | Fragebogen |
 | Papierbelege: Scanner oder Multifunktionsgerät vorhanden? Scan-App auf dem Handy? | Festlegen, wie Papier in den Betriebsordner kommt | T − 14 Tage | Fragebogen |
 | Datensicherung: Gibt es eine, und womit? | Vor der Installation sichern; sonst externe Festplatte besorgen lassen | T − 14 Tage | Fragebogen |
-| Musterunterlagen für die 2 Startbeispiele (z. B. 5 alte Rechnungs-PDFs, Briefkopf, Logo) | Startbeispiele vorher mit echten Daten testen | T − 7 Tage | Mail oder USB-Stick |
+| Musterunterlagen für die 2 Startbeispiele (z. B. 5 alte Rechnungs-PDFs, Briefkopf, Logo) und vorhandene Listen für die Stammdaten (Flächenverzeichnis, Tierliste) | Startbeispiele vorher mit echten Daten testen | T − 7 Tage | Mail oder USB-Stick |
 | Betriebsdaten für das Betriebsprofil (Name, Anschrift, Betriebsnummer, Bankverbindung für Rechnungen) | Briefe und Rechnungen ohne Nachfragen | T − 7 Tage | Fragebogen |
 | Windows-Updates eingespielt | Sonst kosten sie am Tag T leicht eine Stunde | T − 1 Tag | Betrieb; Erinnerung in Mail 3 und 4 |
 | Zahlungsmittel für das Team-Abo (Kreditkarte des Betriebs) | Abo abschließen | Tag T | Betriebsleiter tippt selbst |
@@ -95,14 +95,14 @@ Der Installationstag dauert rund 5,5 Stunden und liegt zwischen den Stallzeiten.
 | --- | --- | --- |
 | 0:00–0:15 | Begrüßung, Ziel des Tages, Ablauf | beide |
 | 0:15–0:45 | Desktop-App installieren, Team-Konto anlegen, Büro-Person einladen (Schritte 3–5) | beide, jeder tippt seine Passwörter selbst |
-| 0:45–2:00 | Sicherung, Ordner, Einstellungen und Standard-Paket für beide Zugänge (Schritte 1–2 und 6–15) | ich allein; beide müssen für Anmeldecodes erreichbar sein |
-| 2:00–2:30 | Regeln vom Betrieb festlegen und abzeichnen, Probeauftrag und Wechsel üben (Schritte 16–17) | beide |
+| 0:45–2:00 | Sicherung, Ordner, Einstellungen und Standard-Paket für beide Zugänge (Schritte 1–2 und 6–17) | ich allein; beide müssen für Anmeldecodes erreichbar sein |
+| 2:00–2:30 | Regeln vom Betrieb festlegen und abzeichnen, Hof-Glossar und Notfallblatt ausfüllen, Probeauftrag und Wechsel üben (Schritte 18–20) | beide |
 | 2:30–2:45 | Pause | – |
 | 2:45–3:45 | Startbeispiel 1 und 2 durchspielen und als Skill speichern, die Büro-Person tippt | beide |
 | 3:45–4:45 | Erstes Programm gemeinsam einbinden | beide |
 | 4:45–4:55 | Pause | – |
 | 4:55–5:10 | Fehler-Routine einmal üben | beide |
-| 5:10–5:30 | Übergabe-Probe für beide, Spickzettel, nächste Termine, Installationsliste (Schritt 18) | beide |
+| 5:10–5:30 | Übergabe-Probe für beide, Spickzettel, nächste Termine, Installationsliste (Schritt 21) | beide |
 
 **Installation Schritt für Schritt**
 
@@ -123,9 +123,12 @@ Die Menünamen stammen aus den englischen Hilfeseiten. In der deutschen Oberflä
 13. Google Chrome installieren, falls er fehlt. Dann für jede Person: im Chrome Web Store die Erweiterung „Claude“ → „Add to Chrome“ → anmelden → Erweiterung anheften. Die Erweiterung startet im Modus „Automatically approve“; weil Claude damit in Webportalen arbeitet, auf Freigeben vor jeder Aktion umstellen.
 14. Claude in Excel: In Excel die Claude-Erweiterung hinzufügen und mit dem eigenen Zugang anmelden. Eine Claude-Erweiterung für Word habe ich nicht gefunden; Word-Dateien erstellt und bearbeitet Claude über den Word-Skill.
 15. Scan-Weg einrichten und einmal testen: Papier → Scanner oder Handy-Scan → `00_Eingang`.
-16. Probeauftrag für jede Person: „Lies das Betriebsprofil und sag mir, welche Regeln für dich gelten.“ Stimmt die Antwort, ist die Grundinstallation fertig.
-17. Wechsel üben: Beide teilen sich einen Windows-Benutzer. Die eine Person meldet sich in der Claude-App ab, die andere an. Vor jeder Arbeit kurz prüfen, wer angemeldet ist.
-18. Installationsliste ausfüllen (was, wann, welche Version) und den ersten Eintrag ins Logbuch schreiben.
+16. Stammdaten anlegen: Flächen aus dem Sammelantrag, Tiere aus HIT oder dem Herdenprogramm, Maschinen, Personen und Kontakte aus dem Fragebogen – je eine Tabelle in `00_Claude/Stammdaten`.
+17. Gemeinsamen Hof-Kalender anlegen und bei beiden Personen verbinden.
+18. Mit beiden das Hof-Glossar beginnen und das Notfallblatt ausfüllen; das Notfallblatt gedruckt neben den Hof-Server hängen.
+19. Probeauftrag für jede Person: „Lies das Betriebsprofil und sag mir, welche Regeln für dich gelten.“ Stimmt die Antwort, ist die Grundinstallation fertig.
+20. Wechsel üben: Beide teilen sich einen Windows-Benutzer. Die eine Person meldet sich in der Claude-App ab, die andere an. Vor jeder Arbeit kurz prüfen, wer angemeldet ist.
+21. Installationsliste ausfüllen (was, wann, welche Version) und den ersten Eintrag ins Logbuch schreiben.
 
 Die Handy-App richte ich erst beim Termin nach 4 Wochen ein, wenn der PC sicher läuft.
 
@@ -150,6 +153,7 @@ Jeder Hof bekommt dieselbe schlanke Grundlage – und nicht mehr. Fertige Skills
 | Hof-Chat mit Rollen | Matrix-Chat, in dem alle Personen eintragen und Grundfragen stellen | Baustein in Arbeit (siehe unten) |
 | Hof-Server | Ein normaler PC, der rund um die Uhr läuft: Betriebsordner, Matrix-Server für den Hof-Chat, Claude mit dem Platz des Betriebsleiters, alle Programme des Hofes | Betrieb kauft, richtet ein und wartet ihn selbst, nach meiner Anleitung |
 | Fachfragen und Nachweise | Antworten mit Quelle und Datum, Nachweise für Entscheidungen im Moment, Behandlungsliste nach Anweisung des Tierarztes | Baustein (siehe unten) |
+| Fundament | Stammdaten und Hof-Glossar, Datensicherung mit Test, Lebenszeichen und Notfallblatt, Skill-Verzeichnis, Diktieren und Fotos, gemeinsamer Hof-Kalender | Abschnitt Fundament (siehe unten) |
 
 **Meine zwei eigenen Skills**
 
@@ -161,6 +165,63 @@ Beide sind keine Programm-Skills, sondern Werkzeuge, mit denen sich der Betrieb 
 **Was am Installationstag auf dem Hof entsteht**
 
 Zwei Skills aus den Startbeispielen und einer für das erste Programm – gebaut aus den echten Unterlagen des Hofes. Ideen liefert die Wunschliste aus dem Vorgespräch, z. B. Rechnungs-PDFs sortieren oder eine Rechnung schreiben.
+
+## Fundament: Stammdaten, Sicherung und Alltag
+
+Sechs Grundlagen kommen auf jeden Hof, weil alles andere darauf aufbaut. Ohne sie ordnet Claude Einträge falsch zu, und ein Ausfall bleibt unbemerkt.
+
+**Stammdaten und Hof-Glossar**
+
+Feste Listen in `00_Claude/Stammdaten`, eine Tabelle pro Thema. Claude ordnet jeden Eintrag, jede Frage und jeden Bericht diesen Listen zu.
+
+| Liste | Inhalt |
+| --- | --- |
+| Flächen | Schlagname, Größe, Lage, Kultur, Auflagen (rotes Gebiet, Wasserschutz, Gewässerabstand) |
+| Tiere | Ohrmarke, Rufname oder Stallnummer, Gruppe, Stall oder Weide |
+| Maschinen und Schlüssel | Maschine, wo der Schlüssel liegt, Besonderheiten |
+| Personen | Name, Rolle, Telefon |
+| Kontakte | Tierarzt, Lohnunternehmer, Landhandel, Steuerbüro, Landwirtschaftskammer |
+| Hof-Glossar | Wie man auf dem Hof sagt, z. B. „Hinterm Deich“ = Schlag 12, „der alte Fendt“ = Schlepper 3 |
+
+- Viele Listen gibt es schon: Flächen aus dem Sammelantrag, Tiere aus HIT oder dem Herdenprogramm. Claude übernimmt sie von dort.
+- Ändert sich etwas, wird zuerst die Liste geändert. Findet Claude etwas Unbekanntes, z. B. eine neue Ohrmarke im Hof-Chat, schlägt es den Eintrag vor und trägt ihn erst nach Freigabe ein.
+- Die Listen pflegt die Bürokraft.
+
+**Datensicherung mit Test**
+
+- Täglich nachts automatisch: Betriebsordner, Matrix-Datenbank, Skills und Einstellungen des Hof-Servers.
+- Zwei Kopien: eine auf einer externen Festplatte am Server, eine außer Haus, z. B. eine zweite Festplatte im Wohnhaus, die wöchentlich getauscht wird.
+- Einmal im Quartal ein Test: eine Datei aus der Sicherung zurückholen und das Ergebnis ins Logbuch schreiben.
+- Einrichten und prüfen macht der Betrieb selbst, wie den ganzen Hof-Server.
+
+**Lebenszeichen und Notfallblatt**
+
+Jeden Morgen meldet sich der Hof-Server im Leitungs-Raum des Hof-Chats, z. B.: „Hof-Server läuft. Sicherung der Nacht: in Ordnung. Neue Einträge seit gestern: 12.“ Bleibt die Meldung aus, stimmt etwas nicht – man merkt es am selben Tag, nicht erst im Wochenbericht.
+
+Das Notfallblatt hängt gedruckt neben dem Server:
+
+| Was ist los | Was tun |
+| --- | --- |
+| Strom weg | Die USV überbrückt kurz, danach startet der Server von selbst. Prüfen, ob das Lebenszeichen wiederkommt. |
+| Internet weg | Hof-Chat und Claude gehen nicht. Einträge auf Papier oder im Handy notieren und später eintragen. Router neu starten, sonst Internet-Anbieter anrufen: [Nummer]. |
+| Claude antwortet nicht | Das Büro läuft wie früher weiter. Hof-Server neu starten und prüfen, ob Claude angemeldet ist. Sonst: [Technik-Verantwortlicher oder IT-Dienstleister]. |
+| Server startet nicht | [IT-Dienstleister] anrufen. Die Daten liegen in der Sicherung. |
+
+**Skill-Verzeichnis**
+
+Eine Tabelle `00_Claude/Skill-Verzeichnis.xlsx` mit Skill, Zweck, Version, verantwortlicher Person, letztem Test und Status (in Arbeit, freigegeben, stillgelegt). Claude trägt jede neue Version ein, der Wochenbericht nennt die Änderungen.
+
+**Diktieren und Fotos**
+
+- Im Hof-Chat diktieren statt tippen: die Mikrofon-Taste der Handy-Tastatur, keine Sprachnachricht. So kommt bei Claude gleich Text an.
+- Fotos mitschicken: lahmes Tier, Schaden an der Maschine, Lieferschein, Beleg des Tierarztes. Claude liest sie und legt sie beim Tier, bei der Maschine oder im Eingang ab (prüfen, sobald die Matrix-Anbindung steht).
+- Sprachnachrichten müssten erst in Text umgewandelt werden – darauf bauen wir nicht.
+
+**Gemeinsamer Hof-Kalender**
+
+- Ein Kalender für den ganzen Hof, getrennt von den privaten: Tierarzt, Klauenpfleger, Lohnunternehmer, Lieferungen, Fristen und das Ende von Wartezeiten.
+- Claude liest und füllt ihn über den Kalender-Konnektor. Einträge von Claude bekommen den Zusatz „(Claude)“.
+- Angestellte fragen im Hof-Chat, z. B. „Wann kommt der Klauenpfleger?“
 
 ## Logbuch und Wochenbericht
 
@@ -201,7 +262,7 @@ Auf der Seite steht:
 6. Fehler der Woche und ob sie behoben sind.
 7. Offene Freigaben und alles, was in Portalen vorausgefüllt, aber noch nicht abgesendet ist.
 8. Neue oder geänderte Skills mit Version.
-9. Lücken: ausgefallene Verarbeitungsläufe, z. B. nach einem Stromausfall.
+9. Lücken: ausgefallene Verarbeitungsläufe, fehlende Lebenszeichen oder Sicherungen, z. B. nach einem Stromausfall.
 
 ## Baustein in Arbeit: Hof-Chat mit Rollen
 
@@ -648,7 +709,7 @@ Diese drei Listen kopiere ich für jeden Betrieb in seine Betriebsakte und hake 
 **Am Installationstag**
 
 - [ ] Betriebsordner gesichert
-- [ ] Musterordner angelegt, Scan-Weg in 00_Eingang getestet
+- [ ] Musterordner angelegt, Scan-Weg in 00_Eingang getestet, Stammdaten angelegt, Hof-Kalender verbunden, Notfallblatt aufgehängt
 - [ ] Desktop-App installiert, Team-Konto angelegt, Büro-Person eingeladen
 - [ ] Abo abgeschlossen (Betriebsleiter hat selbst getippt)
 - [ ] Zwei-Faktor-Anmeldung für beide Mail-Postfächer aktiv

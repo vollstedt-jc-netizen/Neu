@@ -81,6 +81,7 @@ Bitte jedes Programm eintragen, das ihr im Büro nutzt. Die erste Zeile ist ein 
 - [ ] 5 alte Rechnungen als PDF (für Startbeispiel 1)
 - [ ] Briefkopf und Logo (für Startbeispiel 2)
 - [ ] Weitere Unterlagen zu den Startbeispielen, wie im Vorgespräch besprochen
+- [ ] Flächenverzeichnis (z. B. aus dem Sammelantrag) und Tierliste (z. B. aus HIT oder dem Herdenprogramm) für die Stammdaten
 
 ## 8. Bis zum Vortag
 
