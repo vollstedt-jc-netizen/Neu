@@ -24,7 +24,10 @@ Bitte füllt die Abschnitte 1 bis 5 bis [T − 14] aus und schickt den Bogen zur
 | Windows-Version (Start → Einstellungen → System → Info) oder macOS-Version |  |
 | Sind Excel und Word installiert? Habt ihr ein Microsoft-365-Abo? |  |
 | Ist Google Chrome installiert? |  |
-| Teilen sich Betriebsleiter und Büro-Person diesen PC? (ja/nein) |  |
+| Hof-Server: Gibt es schon einen PC, der rund um die Uhr laufen kann, oder kauft ihr einen? |  |
+| Welcher Internet-Anbieter und welcher Router? Kommt ihr an die Router-Einstellungen? |  |
+| Habt ihr eine eigene Internet-Adresse (Domain), z. B. für eine Homepage? |  |
+| Teilen sich Betriebsleiter und Büro-Person den Büro-PC? (ja/nein) |  |
 | Ist das Administrator-Passwort des PCs bekannt? (nur ja/nein) |  |
 | Internet im Büro: WLAN oder Kabel? Läuft es stabil? |  |
 | Handys: Android oder iPhone? |  |
