@@ -1,0 +1,169 @@
+{
+  "titel": "Bauleiter-Checkliste",
+  "stand": "10/2026",
+  "abschnitte": [
+    {
+      "id": "start",
+      "titel": "Vor Baubeginn",
+      "kurz": "Start",
+      "art": "einmalig",
+      "punkte": [
+        {"id": "s01", "text": "Vertrag, LV, Pläne und Vorbemerkungen durchgearbeitet (VOB/B? Vertragsstrafe? Fristen? Sicherheiten?)", "ref": ["VOB-14"]},
+        {"id": "s02", "text": "Baugenehmigung bzw. Freigabe liegt vor, Bauvorlagen für die Baustelle bereit", "ref": ["VOR-06"]},
+        {"id": "s03", "text": "Baubeginnanzeige an die Bauaufsicht geklärt (mind. 1 Woche vorher, durch Bauherrn)", "ref": ["VOR-06"]},
+        {"id": "s04", "text": "Bauleiter der Bauaufsicht benannt (Landesbauordnung)", "ref": ["VOR-05"]},
+        {"id": "s05", "text": "Vorankündigung nach BaustellV geprüft, falls nötig 2 Wochen vorher übermittelt", "ref": ["BSV-02"]},
+        {"id": "s06", "text": "SiGeKo bestellt (bei mehreren Arbeitgebern), SiGe-Plan erhalten und gelesen", "ref": ["BSV-03", "BSV-04"]},
+        {"id": "s07", "text": "Baustellenbezogene Gefährdungsbeurteilung erstellt", "ref": ["ORG-01"]},
+        {"id": "s08", "text": "Leitungsauskünfte aller Betreiber eingeholt, Pläne für die Baustelle kopiert", "ref": ["ERD-01"]},
+        {"id": "s09", "text": "Kampfmittelauskunft eingeholt (wo nötig)", "ref": ["ERD-07"]},
+        {"id": "s10", "text": "Schadstoffe im Bestand geklärt (Asbest-Info vom Bauherrn bei Baujahr vor 1993)", "ref": ["GEF-03", "GEF-04"]},
+        {"id": "s11", "text": "Verkehrsrechtliche Anordnung und Sondernutzungs-/Aufbruchgenehmigung beantragt", "ref": ["VER-01", "VER-02"]},
+        {"id": "s12", "text": "Beweissicherung: Nachbarbebauung, Straßen, Bäume fotografiert bzw. Gutachten", "ref": []},
+        {"id": "s13", "text": "Baustelleneinrichtungsplan und Bauzeitenplan erstellt", "ref": []},
+        {"id": "s14", "text": "Baustrom, Bauwasser, Zufahrt und Lagerflächen geklärt", "ref": ["ELE-01"]},
+        {"id": "s15", "text": "Entsorgung geplant: Container nach Fraktionen, Bodenanalytik", "ref": ["UMW-01", "UMW-03"]},
+        {"id": "s16", "text": "Nachunternehmer-Unterlagen vollständig (Freistellung §48b, Unbedenklichkeit, Mindestlohn)", "ref": ["PER-06", "PER-07"]},
+        {"id": "s17", "text": "Notfall-Aushang ausgefüllt: nächster D-Arzt, Krankenhaus, Zufahrt, Treffpunkt", "ref": ["UNF-08"]},
+        {"id": "s18", "text": "Baustelle bei Claude im Gedächtnis angelegt (PROJEKTE.md)", "ref": []}
+      ]
+    },
+    {
+      "id": "einr",
+      "titel": "Baustelleneinrichtung",
+      "kurz": "Einrichtung",
+      "art": "einmalig",
+      "punkte": [
+        {"id": "e01", "text": "Bauzaun bzw. Absperrung gegen Unbefugte, Warnschilder", "ref": []},
+        {"id": "e02", "text": "Bauschild aufgestellt", "ref": ["VOR-07"]},
+        {"id": "e03", "text": "Vorankündigung und Notfall-Aushang ausgehängt", "ref": ["BSV-02"]},
+        {"id": "e04", "text": "Baustromverteiler mit RCD von Elektrofachkraft aufgestellt und geprüft", "ref": ["ELE-01"]},
+        {"id": "e05", "text": "Toiletten, Waschgelegenheit, Pausencontainer, Trinkwasser vorhanden", "ref": ["ORG-07"]},
+        {"id": "e06", "text": "Verbandkasten in passender Größe, Augenspülflasche, Verbandbuch vor Ort", "ref": ["ORG-06", "UNF-09"]},
+        {"id": "e07", "text": "Feuerlöscher bereitgestellt und gekennzeichnet", "ref": ["BRA-01"]},
+        {"id": "e08", "text": "Verkehrswege und Zufahrt für Rettungsdienst frei und befestigt", "ref": ["BRA-04"]},
+        {"id": "e09", "text": "Absturzkanten gesichert, Öffnungen abgedeckt oder umwehrt", "ref": ["ABS-01", "ABS-05"]},
+        {"id": "e10", "text": "Gerüst übergeben: Prüfprotokoll und Kennzeichnung vorhanden", "ref": ["ABS-07"]},
+        {"id": "e11", "text": "Kran: Standsicherheit, Prüfung nach Aufbau, Kranführer beauftragt", "ref": ["MAS-02"]},
+        {"id": "e12", "text": "Verkehrssicherung nach Anordnung aufgestellt", "ref": ["VER-01"]},
+        {"id": "e13", "text": "Abfallcontainer getrennt und beschriftet", "ref": ["UMW-01"]},
+        {"id": "e14", "text": "Baumschutz aufgestellt (Zaun im Wurzelbereich)", "ref": ["UMW-04"]},
+        {"id": "e15", "text": "Baustellenordner angelegt (GBU, Pläne, Prüfnachweise, Bautagebuch)", "ref": []}
+      ]
+    },
+    {
+      "id": "pers",
+      "titel": "Personal und Arbeitsschutz",
+      "kurz": "Personal",
+      "art": "einmalig",
+      "punkte": [
+        {"id": "p01", "text": "Pflichtenübertragung an Bauleiter und Polier schriftlich", "ref": ["ORG-03"]},
+        {"id": "p02", "text": "Erstunterweisung aller Beschäftigten (auch Nachunternehmer) dokumentiert", "ref": ["ORG-02", "ORG-04"]},
+        {"id": "p03", "text": "Ersthelfer in ausreichender Zahl benannt, Ausbildung nicht älter als 2 Jahre", "ref": ["ORG-05"]},
+        {"id": "p04", "text": "Brandschutzhelfer benannt", "ref": ["BRA-03"]},
+        {"id": "p05", "text": "PSA ausgegeben, Ausgabe quittiert", "ref": ["PSA-01", "PSA-02"]},
+        {"id": "p06", "text": "Schriftliche Beauftragungen: Bagger, Kran, Stapler, Hubarbeitsbühne", "ref": ["MAS-01", "MAS-03", "MAS-04"]},
+        {"id": "p07", "text": "Arbeitsmedizinische Vorsorge geprüft (Lärm, Atemschutz, Feuchtarbeit …)", "ref": ["ORG-08", "ORG-09"]},
+        {"id": "p08", "text": "Betriebsanweisungen, Gefahrstoffverzeichnis, Sicherheitsdatenblätter vor Ort", "ref": ["GEF-01", "MAS-07"]},
+        {"id": "p09", "text": "Ausweis-Belehrung unterschrieben, Personalliste aktuell", "ref": ["PER-01"]},
+        {"id": "p10", "text": "Arbeitszeitaufzeichnung organisiert (binnen 7 Tagen, 2 Jahre aufbewahren)", "ref": ["PER-03"]},
+        {"id": "p11", "text": "Koordination mit anderen Firmen und SiGeKo abgestimmt", "ref": ["ORG-04"]},
+        {"id": "p12", "text": "Sofortmeldung, A1 und Zoll-Meldung bei Entsendung geprüft", "ref": ["PER-02", "PER-08"]}
+      ]
+    },
+    {
+      "id": "tag",
+      "titel": "Täglich",
+      "kurz": "Täglich",
+      "art": "tag",
+      "punkte": [
+        {"id": "t01", "text": "Sicherheitsrundgang: Absturzkanten, Öffnungen, Gerüst unverändert", "ref": ["ABS-01", "ABS-07"]},
+        {"id": "t02", "text": "Gräben und Baugruben: Böschung oder Verbau, Schutzstreifen 0,60 m frei", "ref": ["ERD-02", "ERD-04"]},
+        {"id": "t03", "text": "PSA wird getragen (Helm, Schuhe, Gehörschutz, Warnkleidung)", "ref": ["PSA-01"]},
+        {"id": "t04", "text": "RCD-Prüftaste gedrückt, Kabel und Geräte ohne Schäden", "ref": ["ELE-02"]},
+        {"id": "t05", "text": "Maschinen: Sichtkontrolle, niemand im Schwenkbereich", "ref": ["ERD-06"]},
+        {"id": "t06", "text": "Verkehrswege und Rettungszufahrt frei, Ordnung und Sauberkeit", "ref": ["BRA-04"]},
+        {"id": "t07", "text": "Wetter geprüft (Sturm, Gewitter, Hitze, Glätte) und Maßnahmen getroffen", "ref": ["LAE-03", "LAE-04"]},
+        {"id": "t08", "text": "Bautagebuch geführt (Wetter, Personal, Leistung, Behinderungen, Anordnungen)", "ref": ["VOB-17"]},
+        {"id": "t09", "text": "Fotos der Leistungen gemacht, besonders vor dem Verdecken", "ref": ["VOB-11"]},
+        {"id": "t10", "text": "Lieferscheine geprüft, Stundenlohnzettel eingesammelt", "ref": ["VOB-05"]},
+        {"id": "t11", "text": "Feierabend: Zaun zu, Geräte und Gruben gesichert, Verkehrssicherung kontrolliert", "ref": ["VER-04"]}
+      ]
+    },
+    {
+      "id": "woche",
+      "titel": "Wöchentlich",
+      "kurz": "Woche",
+      "art": "woche",
+      "punkte": [
+        {"id": "w01", "text": "Baubesprechung durchgeführt, Protokoll verschickt", "ref": []},
+        {"id": "w02", "text": "Terminplan Soll/Ist geprüft, Verzug gemeldet", "ref": []},
+        {"id": "w03", "text": "Behinderungen und Bedenken schriftlich angezeigt", "ref": ["VOB-01", "VOB-02"]},
+        {"id": "w04", "text": "Mehrkosten und Nachträge vor Ausführung angekündigt", "ref": ["VOB-04"]},
+        {"id": "w05", "text": "Stundenlohnzettel beim AG eingereicht (Rückgabe binnen 6 Werktagen)", "ref": ["VOB-05"]},
+        {"id": "w06", "text": "Mängelliste aktualisiert, Mängel bei Nachunternehmern gerügt", "ref": ["VOB-10"]},
+        {"id": "w07", "text": "Sicherheitsbegehung dokumentiert, festgestellte Mängel abgestellt", "ref": []},
+        {"id": "w08", "text": "Arbeitszeitaufzeichnungen vollständig", "ref": ["PER-03"]},
+        {"id": "w09", "text": "Gefährdungsbeurteilung für neue Arbeiten und Gewerke fortgeschrieben", "ref": ["ORG-01"]},
+        {"id": "w10", "text": "Kurzunterweisung zum aktuellen Thema gehalten und abgezeichnet", "ref": ["ORG-02"]}
+      ]
+    },
+    {
+      "id": "monat",
+      "titel": "Monatlich und Fristen",
+      "kurz": "Monat",
+      "art": "monat",
+      "punkte": [
+        {"id": "m01", "text": "Aufmaß erstellt, Abschlagsrechnung gestellt", "ref": ["VOB-11", "VOB-13"]},
+        {"id": "m02", "text": "Kostenkontrolle Soll/Ist, Stand der Nachträge", "ref": []},
+        {"id": "m03", "text": "Verbandkasten aufgefüllt, Ablaufdaten geprüft", "ref": ["PRF-02"]},
+        {"id": "m04", "text": "Feuerlöscher Sichtkontrolle (Plombe, Druck, Prüfdatum)", "ref": ["BRA-01"]},
+        {"id": "m05", "text": "RCD-Wirksamkeit von Elektrofachkraft gemessen", "ref": ["ELE-02"]},
+        {"id": "m06", "text": "Prüffristen kontrolliert: Elektrogeräte (3 Mon.), Leitern, Anschlagmittel, PSAgA, Maschinen", "ref": ["PRF-03", "PRF-04"]},
+        {"id": "m07", "text": "Fällige Unterweisungen und Ersthelfer-Fortbildungen geplant", "ref": ["ORG-02", "ORG-05"]},
+        {"id": "m08", "text": "Nachunternehmer-Bescheinigungen noch gültig (§48b, Unbedenklichkeit)", "ref": ["PER-06"]},
+        {"id": "m09", "text": "Verkehrsrechtliche Anordnung noch gültig", "ref": ["VER-01"]},
+        {"id": "m10", "text": "Entsorgungsnachweise abgelegt", "ref": ["UMW-01"]}
+      ]
+    },
+    {
+      "id": "ende",
+      "titel": "Abnahme und Abschluss",
+      "kurz": "Abschluss",
+      "art": "einmalig",
+      "punkte": [
+        {"id": "a01", "text": "Restleistungen und Mängel vor Fertigstellung abgearbeitet", "ref": []},
+        {"id": "a02", "text": "Fertigstellung schriftlich mitgeteilt, förmliche Abnahme verlangt", "ref": ["VOB-06"]},
+        {"id": "a03", "text": "Abnahmeprotokoll unterschrieben, Vorbehalte notiert", "ref": ["VOB-07", "VOB-08"]},
+        {"id": "a04", "text": "Revisionsunterlagen, Bedienungs- und Wartungsanleitungen, Fachunternehmererklärungen übergeben", "ref": []},
+        {"id": "a05", "text": "Unterlage für spätere Arbeiten übergeben (bei mehreren Arbeitgebern)", "ref": ["BSV-05"]},
+        {"id": "a06", "text": "Gemeinsames Aufmaß, Schlussrechnung fristgerecht gestellt", "ref": ["VOB-12"]},
+        {"id": "a07", "text": "Gewährleistungsende und Bürgschaften in PROJEKTE.md notiert", "ref": ["VOB-10"]},
+        {"id": "a08", "text": "Baustelle geräumt, Verkehrssicherung abgebaut, Flächen wiederhergestellt", "ref": []},
+        {"id": "a09", "text": "Fertigstellungsanzeige an Bauaufsicht (falls nach LBO gefordert)", "ref": []},
+        {"id": "a10", "text": "Baustellenordner archiviert (Verbandbuch 5 Jahre, Arbeitszeiten 2 Jahre)", "ref": ["UNF-09", "PER-03"]}
+      ]
+    },
+    {
+      "id": "unfall",
+      "titel": "Bei Unfall",
+      "kurz": "Unfall",
+      "art": "vorfall",
+      "punkte": [
+        {"id": "u01", "text": "Unfallstelle abgesichert, Maschinen und Strom aus", "ref": ["UNF-02"]},
+        {"id": "u02", "text": "Notruf 112: Wo, Was, Wie viele, Welche Verletzungen, auf Rückfragen warten", "ref": ["UNF-01"]},
+        {"id": "u03", "text": "Erste Hilfe geleistet", "ref": []},
+        {"id": "u04", "text": "Rettungsdienst an der Zufahrt abgeholt und eingewiesen", "ref": ["UNF-02"]},
+        {"id": "u05", "text": "Unternehmer informiert; bei schwerem oder tödlichem Unfall sofort BG BAU, Arbeitsschutzbehörde, Polizei", "ref": ["UNF-05"]},
+        {"id": "u06", "text": "Unfallstelle fotografiert und unverändert gelassen", "ref": ["UNF-05"]},
+        {"id": "u07", "text": "Zeugen mit Telefonnummer notiert", "ref": []},
+        {"id": "u08", "text": "Verbandbuch-Eintrag gemacht", "ref": ["UNF-09"]},
+        {"id": "u09", "text": "D-Arzt-Vorstellung veranlasst (AU über den Unfalltag, Behandlung > 1 Woche)", "ref": ["UNF-08"]},
+        {"id": "u10", "text": "Unfall-Erfassungsbogen ausgefüllt", "ref": []},
+        {"id": "u11", "text": "Unfallanzeige an BG BAU binnen 3 Tagen (wenn mehr als 3 Tage arbeitsunfähig)", "ref": ["UNF-03", "UNF-04"]},
+        {"id": "u12", "text": "Ursache analysiert, Maßnahmen umgesetzt, Gefährdungsbeurteilung fortgeschrieben", "ref": ["UNF-13"]},
+        {"id": "u13", "text": "Kolonne zum Unfall unterwiesen und Nachweis abgelegt", "ref": ["UNF-12"]}
+      ]
+    }
+  ]
+}
