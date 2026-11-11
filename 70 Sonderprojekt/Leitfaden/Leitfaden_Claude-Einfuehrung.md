@@ -770,11 +770,11 @@ Viele Grüße
 
 ## Checklisten zum Abhaken
 
-Diese drei Listen kopiere ich für jeden Betrieb in seine Betriebsakte und hake dort ab. Die Betriebsakte liegt im Repository unter 70 Sonderprojekt/Betriebe/<Betrieb> – nie bei den Unterlagen meines eigenen Betriebs.
+Diese drei Listen kopiere ich für jeden Betrieb in seine Betriebsakte und hake dort ab. Die Betriebsakte liegt in Google Drive unter 70_Sonderprojekt/Betriebe/<Betrieb> – nie bei den Unterlagen meines eigenen Betriebs.
 
 **Vor dem Termin**
 
-- [ ] Betriebsakte unter 70 Sonderprojekt/Betriebe/<Betrieb> angelegt, Mail 1 verschickt
+- [ ] Betriebsakte in Google Drive unter 70_Sonderprojekt/Betriebe/<Betrieb> angelegt, Mail 1 verschickt
 - [ ] Vorgespräch geführt (Vorführung mit Einverständnis, Chat danach gelöscht), Protokoll abgezeichnet
 - [ ] Auftrag und Datenschutz-Vereinbarung unterschrieben zurück
 - [ ] Mail 2 mit Fragebogen verschickt
@@ -833,7 +833,7 @@ Dreizehn Fragen muss ich klären, bevor der Ablauf beim ersten Pilotbetrieb (Tim
 
 ## Quellen
 
-Die Hilfeseiten wurden am 11.11.2026 gelesen. Interview-Fragen, Standard-Regeln, Ordnerstruktur und Startbeispiele stammen aus meinem Leitfaden vom 24.10.2026 (`70 Sonderprojekt/Archiv/2026-10-24_Leitfaden_Claude_Landwirtschaft_alt.docx`).
+Die Hilfeseiten wurden am 11.11.2026 gelesen. Interview-Fragen, Standard-Regeln, Ordnerstruktur und Startbeispiele stammen aus meinem Leitfaden vom 24.10.2026 (jetzt in Google Drive unter `70_Sonderprojekt/Archiv`). Ein datierter Abzug dieses Leitfadens und seiner Reiter liegt unter `70_Sonderprojekt/Leitfaden`.
 
 - [Install Claude Desktop](https://support.claude.com/en/articles/10065433-install-claude-desktop) – Systemvoraussetzungen, Download, Anmeldung
 - [Use skills in Claude](https://support.claude.com/en/articles/12512180-use-skills-in-claude) – Skills einschalten, hochladen, Einstellungen im Team-Tarif
