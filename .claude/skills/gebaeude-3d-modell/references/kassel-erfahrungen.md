@@ -33,3 +33,7 @@ Lies das vor dem Bauen. Es spart die Fehler, die wir dort gemacht und gefunden h
 - **Dunkle Wandseiten durch Glasflächen**: Glas als eigene Box mit Textur, die Wand daneben nicht von hinten sichtbar machen.
 - **Fotos aus Kassel** (iPhone 15 Pro Max): Kompass und Brennweite sind in der Datei, GPS hat ca. 130 m Fehler. Position nie aus dem GPS nehmen.
 - Weiße Löcher im Modell sind der beste Hinweis auf fehlende Bauteile.
+
+## Erkenntnisse aus Fotos
+- **IMG_6404.jpeg** (Innenfoto, Kompass 78° ONO, iPhone 15 Pro Max, Aufnahme 10.10.2025): große Doppeltür (ca. 2,2 m breit, ca. 3,4 m hoch) mit Oberlicht (2 × 4 Felder, Sprossenteilung) in einer verputzten Wand; Decke ist eine Kappendecke (Backsteingewölbe zwischen Stahlträgern), die das Modell bisher als glatte Platte zeigt. Damit ist belegt: Innenfotos liefern Details (Türform, Deckenart, Laibungen), sind aber ohne Zuordnung zu einem Raum nicht für die Kamerapositionsbestimmung geeignet. Die Zuordnung gelingt nur über Türen/Fenster, die sich in einem Grundriss wiederfinden lassen.
+- Für Innenfotos zuerst Geschoss und Wand bestimmen (Kompass, Türlage im Grundriss), dann das Detail ins Modell übernehmen und als "Foto, einfach belegt" markieren.
