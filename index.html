@@ -1,0 +1,271 @@
+<!doctype html>
+<html lang="de">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Zeiterfassung</title>
+<style>
+  :root { --bg:#f4f6f8; --card:#fff; --text:#1d2733; --muted:#6b7785; --accent:#1f6feb; --danger:#d1342f; --ok:#1a7f4b; --line:#e1e6eb; }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg:#14181d; --card:#1d232a; --text:#e6ebf0; --muted:#8b97a4; --accent:#4c8dff; --danger:#ff6b66; --ok:#3ccf82; --line:#2b333c; }
+  }
+  * { box-sizing: border-box; }
+  body { margin:0; background:var(--bg); color:var(--text); font:16px/1.45 system-ui,-apple-system,Segoe UI,Roboto,sans-serif; }
+  main { max-width:760px; margin:0 auto; padding:16px; }
+  h1 { font-size:1.3rem; margin:0 0 12px; }
+  h2 { font-size:1rem; margin:0 0 10px; }
+  .card { background:var(--card); border:1px solid var(--line); border-radius:12px; padding:16px; margin-bottom:14px; }
+  label { display:block; font-size:.8rem; color:var(--muted); margin-bottom:3px; }
+  input, select, textarea, button { font:inherit; color:inherit; }
+  input, select, textarea { width:100%; padding:9px 10px; border:1px solid var(--line); border-radius:8px; background:var(--bg); }
+  textarea { min-height:110px; resize:vertical; }
+  button { padding:9px 14px; border:1px solid var(--line); border-radius:8px; background:var(--card); cursor:pointer; }
+  button.primary { background:var(--accent); border-color:var(--accent); color:#fff; }
+  button.danger { background:var(--danger); border-color:var(--danger); color:#fff; }
+  button.link { border:none; background:none; color:var(--muted); padding:4px 6px; }
+  .row { display:flex; gap:10px; flex-wrap:wrap; align-items:flex-end; }
+  .row > div { flex:1 1 140px; }
+  .nav { display:flex; gap:8px; align-items:center; justify-content:space-between; }
+  .nav input[type=date] { width:auto; flex:1; text-align:center; }
+  .timer { font-size:2rem; font-variant-numeric:tabular-nums; font-weight:600; }
+  .entry { display:flex; justify-content:space-between; gap:10px; padding:10px 0; border-top:1px solid var(--line); }
+  .entry:first-child { border-top:none; }
+  .entry small, .muted { color:var(--muted); }
+  .dur { font-variant-numeric:tabular-nums; font-weight:600; white-space:nowrap; }
+  .total { display:flex; justify-content:space-between; font-weight:600; padding-top:10px; border-top:2px solid var(--line); }
+  .saved { color:var(--ok); font-size:.8rem; height:1.1em; }
+  .tools { display:flex; gap:8px; flex-wrap:wrap; }
+  .week { display:grid; grid-template-columns:repeat(7,1fr); gap:6px; text-align:center; font-size:.8rem; }
+  .week div { padding:6px 2px; border-radius:8px; background:var(--bg); cursor:pointer; border:1px solid transparent; }
+  .week div.sel { border-color:var(--accent); }
+  .week b { display:block; font-size:.95rem; }
+  .dot { color:var(--accent); }
+</style>
+</head>
+<body>
+<main>
+  <h1>⏱ Zeiterfassung</h1>
+
+  <section class="card">
+    <h2>Stoppuhr</h2>
+    <div class="row">
+      <div><label for="tObj">Objekt / Immobilie</label><input id="tObj" list="objList" placeholder="z. B. Hauptstr. 12"></div>
+      <div><label for="tAct">Tätigkeit</label>
+        <select id="tAct"></select></div>
+    </div>
+    <div class="row" style="margin-top:10px">
+      <div class="timer" id="timer">00:00:00</div>
+      <div style="flex:0 0 auto"><button class="primary" id="tBtn">Start</button></div>
+    </div>
+  </section>
+
+  <section class="card">
+    <div class="nav">
+      <button id="prev" aria-label="Vorheriger Tag">‹</button>
+      <input type="date" id="day" aria-label="Datum">
+      <button id="next" aria-label="Nächster Tag">›</button>
+      <button id="today">Heute</button>
+    </div>
+    <div class="week" id="week" style="margin-top:12px"></div>
+  </section>
+
+  <section class="card">
+    <h2>Einträge am <span id="dayLabel"></span></h2>
+    <div id="entries"></div>
+    <div class="total"><span>Summe</span><span class="dur" id="sum">0:00 h</span></div>
+    <details style="margin-top:12px">
+      <summary>Eintrag manuell hinzufügen</summary>
+      <div class="row" style="margin-top:10px">
+        <div><label for="mObj">Objekt</label><input id="mObj" list="objList"></div>
+        <div><label for="mAct">Tätigkeit</label><select id="mAct"></select></div>
+      </div>
+      <div class="row" style="margin-top:10px">
+        <div><label for="mFrom">Von</label><input type="time" id="mFrom"></div>
+        <div><label for="mTo">Bis</label><input type="time" id="mTo"></div>
+        <div style="flex:0 0 auto"><button class="primary" id="mAdd">Hinzufügen</button></div>
+      </div>
+    </details>
+  </section>
+
+  <section class="card">
+    <h2>📝 Notizen zum Tag</h2>
+    <textarea id="note" placeholder="Besonderheiten, Absprachen mit Mietern, Handwerkertermine, offene Punkte …"></textarea>
+    <div class="saved" id="saved"></div>
+  </section>
+
+  <section class="card">
+    <h2>Export &amp; Sicherung</h2>
+    <div class="row">
+      <div><label for="month">Monat</label><input type="month" id="month"></div>
+      <div style="flex:0 0 auto" class="tools">
+        <button id="csv">CSV exportieren</button>
+        <button id="bak">Backup (JSON)</button>
+        <button id="restore">Backup laden</button>
+        <input type="file" id="file" accept="application/json" hidden>
+      </div>
+    </div>
+    <p class="muted" style="margin:10px 0 0;font-size:.85rem">Daten werden nur lokal in diesem Browser gespeichert. Bitte regelmäßig ein Backup erstellen.</p>
+  </section>
+</main>
+<datalist id="objList"></datalist>
+
+<script>
+const ACTIVITIES = ["Objektbegehung","Mieterkontakt","Handwerker / Instandhaltung","Verwaltung / Büro","Nebenkostenabrechnung","Eigentümerversammlung","Wohnungsübergabe","Fahrtzeit","Sonstiges"];
+const KEY = "zeiterfassung.v1";
+const $ = id => document.getElementById(id);
+const pad = n => String(n).padStart(2,"0");
+const iso = d => `${d.getFullYear()}-${pad(d.getMonth()+1)}-${pad(d.getDate())}`;
+const fromIso = s => { const [y,m,d] = s.split("-").map(Number); return new Date(y,m-1,d); };
+const fmtDur = min => `${Math.floor(min/60)}:${pad(Math.round(min%60))} h`;
+const fmtDate = s => fromIso(s).toLocaleDateString("de-DE",{weekday:"long",day:"2-digit",month:"2-digit",year:"numeric"});
+const esc = s => s.replace(/[&<>"']/g, c => ({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+
+let db = load();
+let current = iso(new Date());
+
+function load() {
+  try { const d = JSON.parse(localStorage.getItem(KEY)); if (d && d.entries) return d; } catch (e) {}
+  return { entries: [], notes: {}, running: null };
+}
+function save() {
+  try { localStorage.setItem(KEY, JSON.stringify(db)); } catch (e) { alert("Speichern im Browser nicht möglich."); }
+}
+const uid = () => Date.now().toString(36) + Math.random().toString(36).slice(2,6);
+const toMin = t => { const [h,m] = t.split(":").map(Number); return h*60+m; };
+const hhmm = d => `${pad(d.getHours())}:${pad(d.getMinutes())}`;
+
+// Auswahllisten
+for (const id of ["tAct","mAct"]) $(id).innerHTML = ACTIVITIES.map(a => `<option>${a}</option>`).join("");
+function refreshObjects() {
+  const set = [...new Set(db.entries.map(e => e.obj).filter(Boolean))].sort();
+  $("objList").innerHTML = set.map(o => `<option value="${esc(o)}">`).join("");
+}
+
+// Stoppuhr
+function tick() {
+  if (!db.running) { $("timer").textContent = "00:00:00"; return; }
+  const s = Math.floor((Date.now() - db.running.start) / 1000);
+  $("timer").textContent = `${pad(Math.floor(s/3600))}:${pad(Math.floor(s/60)%60)}:${pad(s%60)}`;
+}
+function renderTimerBtn() {
+  const r = !!db.running;
+  $("tBtn").textContent = r ? "Stopp" : "Start";
+  $("tBtn").className = r ? "danger" : "primary";
+  if (r) { $("tObj").value = db.running.obj; $("tAct").value = db.running.act; }
+  $("tObj").disabled = $("tAct").disabled = r;
+}
+$("tBtn").onclick = () => {
+  if (!db.running) {
+    db.running = { start: Date.now(), obj: $("tObj").value.trim(), act: $("tAct").value };
+  } else {
+    const st = new Date(db.running.start), en = new Date();
+    // über Mitternacht: auf Starttag begrenzen
+    const endStr = iso(st) === iso(en) ? hhmm(en) : "23:59";
+    db.entries.push({ id: uid(), date: iso(st), from: hhmm(st), to: endStr, obj: db.running.obj, act: db.running.act });
+    current = iso(st);
+    db.running = null;
+  }
+  save(); renderAll();
+};
+setInterval(tick, 1000);
+
+// Manuell
+$("mAdd").onclick = () => {
+  const f = $("mFrom").value, t = $("mTo").value;
+  if (!f || !t || toMin(t) <= toMin(f)) { alert("Bitte gültige Zeiten eingeben (Ende nach Beginn)."); return; }
+  db.entries.push({ id: uid(), date: current, from: f, to: t, obj: $("mObj").value.trim(), act: $("mAct").value });
+  $("mFrom").value = $("mTo").value = "";
+  save(); renderAll();
+};
+
+// Tag
+function dayEntries(d) { return db.entries.filter(e => e.date === d).sort((a,b) => a.from.localeCompare(b.from)); }
+const dur = e => toMin(e.to) - toMin(e.from);
+
+function renderEntries() {
+  const list = dayEntries(current);
+  $("dayLabel").textContent = fmtDate(current);
+  $("entries").innerHTML = list.length ? list.map(e => `
+    <div class="entry">
+      <div><b>${esc(e.obj || "– ohne Objekt –")}</b><br><small>${esc(e.act)} · ${e.from}–${e.to}</small></div>
+      <div><span class="dur">${fmtDur(dur(e))}</span> <button class="link" data-del="${e.id}" aria-label="Löschen">🗑</button></div>
+    </div>`).join("") : `<p class="muted">Keine Einträge.</p>`;
+  $("sum").textContent = fmtDur(list.reduce((s,e) => s + dur(e), 0));
+}
+$("entries").onclick = ev => {
+  const id = ev.target.dataset.del;
+  if (id && confirm("Eintrag löschen?")) { db.entries = db.entries.filter(e => e.id !== id); save(); renderAll(); }
+};
+
+function renderWeek() {
+  const d = fromIso(current), dow = (d.getDay()+6)%7;
+  const mon = new Date(d); mon.setDate(d.getDate() - dow);
+  let html = "";
+  for (let i = 0; i < 7; i++) {
+    const x = new Date(mon); x.setDate(mon.getDate()+i);
+    const s = iso(x), m = dayEntries(s).reduce((a,e) => a + dur(e), 0);
+    html += `<div data-d="${s}" class="${s===current?"sel":""}">${x.toLocaleDateString("de-DE",{weekday:"short"})}<b>${x.getDate()}</b>${m?fmtDur(m).replace(" h",""):"·"}${db.notes[s]?' <span class="dot">●</span>':""}</div>`;
+  }
+  $("week").innerHTML = html;
+}
+$("week").onclick = ev => { const c = ev.target.closest("[data-d]"); if (c) go(c.dataset.d); };
+
+function go(d) { current = d; renderAll(); }
+$("day").onchange = () => $("day").value && go($("day").value);
+$("prev").onclick = () => { const d = fromIso(current); d.setDate(d.getDate()-1); go(iso(d)); };
+$("next").onclick = () => { const d = fromIso(current); d.setDate(d.getDate()+1); go(iso(d)); };
+$("today").onclick = () => go(iso(new Date()));
+
+// Notizen (automatisch speichern)
+let noteTimer;
+$("note").oninput = () => {
+  const day = current, v = $("note").value;
+  $("saved").textContent = "";
+  clearTimeout(noteTimer);
+  noteTimer = setTimeout(() => {
+    if (v.trim()) db.notes[day] = v; else delete db.notes[day];
+    save(); $("saved").textContent = "Gespeichert ✓"; renderWeek();
+  }, 400);
+};
+
+// Export
+function download(name, text, type) {
+  const a = document.createElement("a");
+  a.href = URL.createObjectURL(new Blob([text], { type }));
+  a.download = name; a.click(); URL.revokeObjectURL(a.href);
+}
+$("csv").onclick = () => {
+  const m = $("month").value; if (!m) return;
+  const q = v => `"${String(v).replace(/"/g,'""')}"`;
+  const days = new Set([...db.entries.filter(e => e.date.startsWith(m)).map(e => e.date), ...Object.keys(db.notes).filter(d => d.startsWith(m))]);
+  const rows = [["Datum","Von","Bis","Dauer (h)","Objekt","Tätigkeit","Notiz zum Tag"]];
+  [...days].sort().forEach(d => {
+    const list = dayEntries(d), note = db.notes[d] || "";
+    if (!list.length) rows.push([d,"","","","","",note]);
+    list.forEach((e,i) => rows.push([d,e.from,e.to,(dur(e)/60).toFixed(2).replace(".",","),e.obj,e.act,i===0?note:""]));
+  });
+  download(`zeiten-${m}.csv`, "﻿" + rows.map(r => r.map(q).join(";")).join("\r\n"), "text/csv;charset=utf-8");
+};
+$("bak").onclick = () => download(`zeiterfassung-backup-${iso(new Date())}.json`, JSON.stringify(db), "application/json");
+$("restore").onclick = () => $("file").click();
+$("file").onchange = async () => {
+  try {
+    const d = JSON.parse(await $("file").files[0].text());
+    if (!Array.isArray(d.entries) || typeof d.notes !== "object") throw 0;
+    if (!confirm("Aktuelle Daten durch das Backup ersetzen?")) return;
+    db = { entries: d.entries, notes: d.notes, running: null }; save(); renderAll();
+  } catch (e) { alert("Ungültige Backup-Datei."); }
+  $("file").value = "";
+};
+
+function renderAll() {
+  $("day").value = current;
+  $("month").value = current.slice(0,7);
+  $("note").value = db.notes[current] || "";
+  $("saved").textContent = "";
+  refreshObjects(); renderEntries(); renderWeek(); renderTimerBtn(); tick();
+}
+renderAll();
+</script>
+</body>
+</html>
